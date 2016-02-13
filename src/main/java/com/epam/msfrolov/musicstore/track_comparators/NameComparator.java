@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.TrackComparators;
+package com.epam.msfrolov.musicstore.track_comparators;
 
 import com.epam.msfrolov.musicstore.model.Track;
 

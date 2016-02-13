@@ -1,8 +1,13 @@
 package com.epam.msfrolov.musicstore.model;
 
+import java.util.*;
+
 public class Style extends NamedEntity implements Comparable<Style>, Indexable {
     private static int INDEX;
-    public static Style NON_STYLE;
+    public static final Style NON_STYLE;
+
+    private static List<Style> STYLES_LIST = new ArrayList<>();
+
     static {
         NON_STYLE = new Style("NON STYLE");
     }
@@ -10,6 +15,11 @@ public class Style extends NamedEntity implements Comparable<Style>, Indexable {
     public Style(String name) {
         this.setId(createIndex());
         this.setName(name);
+        STYLES_LIST.add(this);
+    }
+
+    public static List<Style> getStylesList() {
+        return Collections.unmodifiableList(STYLES_LIST);
     }
 
     @Override

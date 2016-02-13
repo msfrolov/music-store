@@ -62,7 +62,7 @@ public class Playlist extends MultimediaEntity implements Indexable, Tracklist {
     public void sort(Comparator<Track> comparator) {
         Collections.sort(this.tracklist, comparator);
     }
-    
+
     @Override
     public void recalculateValues(Track track) {
         if (!tracklist.contains(track)) return;
