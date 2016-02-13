@@ -3,14 +3,11 @@ package com.epam.msfrolov.musicstore.model;
 import org.joda.money.Money;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
-//TODO implem. inc. and dec. account
 public class User extends NamedEntity implements Indexable {
     private static int INDEX;
     public static User ADMIN = new User("admin");
-    private Money account;
+    private Money account = Money.parse("KZT 0");
     private ArrayList<Playlist> playlists;
 
     public User() {
@@ -18,7 +15,7 @@ public class User extends NamedEntity implements Indexable {
     }
 
     public User(String name) {
-        this.setId(createIndex());
+        this();
         this.setName(name);
     }
 
@@ -45,7 +42,7 @@ public class User extends NamedEntity implements Indexable {
 
     @Override
     public String toString() {
-        return "User" + this.getName() + ' ' +
+        return "user" + this.getName() + ' ' +
                 "@" + account;
     }
 

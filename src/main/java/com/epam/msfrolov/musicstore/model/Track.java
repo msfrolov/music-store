@@ -1,19 +1,53 @@
 package com.epam.msfrolov.musicstore.model;
 
+import org.joda.money.Money;
+
+import java.time.Duration;
+
 public class Track extends CommercialMultimediaEntity implements Indexable {
     private static int INDEX;
     private Style style;
 
-    public Track(String name) {
+
+    private Track(){
         this.setId(createIndex());
+    }
+
+    public Track(String name) {
+        this();
         this.setName(name);
         this.setStyle(Style.NON_STYLE);
     }
 
     public Track(String name, Style style) {
-        this.setId(createIndex());
+        this();
         this.setName(name);
         this.style = style;
+    }
+    public Track(String name, Style style, Duration duration, Money price) {
+        this(name, style);
+        this.setDuration(duration);
+        this.setPrice(price);
+    }
+
+    @Override
+    protected void setPrice(Money price) {
+        super.setPrice(price);
+    }
+
+    @Override
+    protected void setDuration(Duration duration) {
+        super.setDuration(duration);
+    }
+
+    public void correctionPrice(Money price) {
+        this.setPrice(price);
+        AllLists.recalculateValues(this);
+    }
+
+    public void correctionDuration(Duration duration) {
+        this.setDuration(duration);
+        AllLists.recalculateValues(this);
     }
 
     public Style getStyle() {
@@ -55,4 +89,6 @@ public class Track extends CommercialMultimediaEntity implements Indexable {
                 getDuration() + ' ' +
                 getPrice();
     }
+
+
 }

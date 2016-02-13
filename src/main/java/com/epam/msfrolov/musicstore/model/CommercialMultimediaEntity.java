@@ -3,9 +3,9 @@ package com.epam.msfrolov.musicstore.model;
 import org.joda.money.Money;
 
 public abstract class CommercialMultimediaEntity extends MultimediaEntity {
-    private Money price;
+    private Money price = Money.parse("KZT 0");
 
-    protected Money getPrice() {
+    public Money getPrice() {
         return price;
     }
 
