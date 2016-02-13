@@ -1,11 +1,19 @@
 package com.epam.msfrolov.musicstore.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
-public class Playlist extends MultimediaEntity implements Indexable, ListMultimedia {
+public class Playlist extends MultimediaEntity implements Indexable, TrackList {
 
     private static int INDEX;
     private final User owner;
+    private ArrayList<Track> tracklist;
+
+    public Playlist() {
+        this.setId(createIndex());
+        this.owner = User.ADMIN;
+    }
 
     public Playlist(User owner) {
         this.setId(createIndex());
@@ -13,7 +21,7 @@ public class Playlist extends MultimediaEntity implements Indexable, ListMultime
 
     }
 
-    public Playlist(String name, User owner) {
+    public Playlist(User owner, String name) {
         this.setId(createIndex());
         this.setName(name);
         this.owner = owner;
@@ -29,17 +37,26 @@ public class Playlist extends MultimediaEntity implements Indexable, ListMultime
     }
 
     @Override
-    public boolean add(CommercialMultimediaEntity file) {
+    public boolean add(Track file) {
+        if (!this.tracklist.contains(file)) {
+            tracklist.add(file);
+            return true;
+        }
         return false;
     }
 
     @Override
-    public boolean remove(CommercialMultimediaEntity file) {
+    public boolean remove(Track file) {
+        if (!this.tracklist.contains(file)) {
+            tracklist.remove(file);
+            return true;
+        }
         return false;
     }
 
     @Override
-    public void sort(Comparator comparator) {
-
+    public void sort(Comparator<Track> comparator) {
+        Collections.sort(this.tracklist, comparator);
     }
 }
+

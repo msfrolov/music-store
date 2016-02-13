@@ -22,7 +22,6 @@ public abstract class CommercialMultimediaEntity extends MultimediaEntity {
         CommercialMultimediaEntity that = (CommercialMultimediaEntity) o;
 
         return price != null ? price.equals(that.price) : that.price == null;
-
     }
 
     @Override

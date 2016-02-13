@@ -11,7 +11,7 @@ public abstract class MultimediaEntity extends NamedEntity{
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    protected void setDuration(Duration duration) {
         this.duration = duration;
     }
 }
