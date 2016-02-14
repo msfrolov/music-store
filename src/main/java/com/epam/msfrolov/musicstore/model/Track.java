@@ -3,11 +3,16 @@ package com.epam.msfrolov.musicstore.model;
 import org.joda.money.Money;
 
 import java.time.Duration;
+import java.util.Comparator;
 
 public class Track extends CommercialMultimediaEntity {
     private static int INDEX;
     private Style style;
 
+    public static final Comparator<Track> COMPARE_DURATION = (d1, d2) -> d1.getDuration().compareTo(d2.getDuration());
+    public static final Comparator<Track> COMPARE_ID = (d1, d2) -> d1.getId().compareTo(d2.getId());
+    public static final Comparator<Track> COMPARE_NAME = (d1, d2) -> d1.getName().compareTo(d2.getName());
+    public static final Comparator<Track> COMPARE_STYLE = (d1, d2) -> d1.getStyle().compareTo(d2.getStyle());
 
     private Track(){
     }

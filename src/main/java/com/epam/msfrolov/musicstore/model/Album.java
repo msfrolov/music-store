@@ -54,7 +54,7 @@ public class Album extends CommercialMultimediaEntity implements  Tracklist {
     public void sort(Comparator<Track> comparator) {
         Collections.sort(this.tracklist, comparator);
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
