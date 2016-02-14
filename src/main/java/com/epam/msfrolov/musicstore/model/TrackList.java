@@ -8,6 +8,4 @@ public interface Tracklist {
     boolean remove(Track file);
 
     void sort(Comparator<Track> comparator);
-
-    void recalculateValues(Track track);
 }

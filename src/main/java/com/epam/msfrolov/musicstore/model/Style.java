@@ -2,7 +2,7 @@ package com.epam.msfrolov.musicstore.model;
 
 import java.util.*;
 
-public class Style extends NamedEntity implements Comparable<Style>, Indexable {
+public class Style extends NamedEntity implements Comparable<Style> {
     private static int INDEX;
     public static final Style NON_STYLE;
 
@@ -13,18 +13,12 @@ public class Style extends NamedEntity implements Comparable<Style>, Indexable {
     }
 
     public Style(String name) {
-        this.setId(createIndex());
         this.setName(name);
         STYLES_LIST.add(this);
     }
 
     public static List<Style> getStylesList() {
         return Collections.unmodifiableList(STYLES_LIST);
-    }
-
-    @Override
-    public int createIndex() {
-        return INDEX++;
     }
 
     @Override

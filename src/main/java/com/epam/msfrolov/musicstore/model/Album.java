@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Album extends CommercialMultimediaEntity implements Indexable, Tracklist {
+public class Album extends CommercialMultimediaEntity implements  Tracklist {
     private static int INDEX;
     private ArrayList<Track> tracklist;
 
     private Album() {
-        AllLists.addTrackList(this);
-        this.setId(createIndex());
         this.tracklist = new ArrayList<>();
     }
 
@@ -56,21 +54,7 @@ public class Album extends CommercialMultimediaEntity implements Indexable, Trac
     public void sort(Comparator<Track> comparator) {
         Collections.sort(this.tracklist, comparator);
     }
-
-
-    @Override
-    public void recalculateValues(Track track) {
-        if (!tracklist.contains(track)) return;
-        Duration totalDuration = Duration.ZERO;
-        Money totalMoney = Money.parse("KZT 0");
-        for (Track currentTrack : this.tracklist) {
-            totalDuration = totalDuration.plus(currentTrack.getDuration());
-            totalMoney = totalMoney.plus(currentTrack.getPrice());
-        }
-        this.setDuration(totalDuration);
-        this.setPrice(totalMoney);
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -88,10 +72,5 @@ public class Album extends CommercialMultimediaEntity implements Indexable, Trac
         int result = super.hashCode();
         result = 31 * result + (tracklist != null ? tracklist.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public int createIndex() {
-        return INDEX++;
     }
 }

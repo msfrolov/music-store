@@ -7,23 +7,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Playlist extends MultimediaEntity implements Indexable, Tracklist {
+public class Playlist extends MultimediaEntity implements Tracklist {
 
     private static int INDEX;
     private final User owner;
     private ArrayList<Track> tracklist;
 
     public Playlist() {
-        AllLists.addTrackList(this);
-        this.setId(createIndex());
         this.owner = User.ADMIN;
     }
 
     public Playlist(User owner) {
-        AllLists.addTrackList(this);
-        this.setId(createIndex());
         this.owner = owner;
-
     }
 
     public Playlist(User owner, String name) {
@@ -33,11 +28,6 @@ public class Playlist extends MultimediaEntity implements Indexable, Tracklist {
 
     public User getOwner() {
         return owner;
-    }
-
-    @Override
-    public int createIndex() {
-        return INDEX++;
     }
 
     @Override
@@ -63,14 +53,5 @@ public class Playlist extends MultimediaEntity implements Indexable, Tracklist {
         Collections.sort(this.tracklist, comparator);
     }
 
-    @Override
-    public void recalculateValues(Track track) {
-        if (!tracklist.contains(track)) return;
-        Duration totalDuration = Duration.ZERO;
-        for (Track currentTrack:this.tracklist) {
-            totalDuration = totalDuration.plus(currentTrack.getDuration());
-        }
-        this.setDuration(totalDuration);
-    }
 }
 

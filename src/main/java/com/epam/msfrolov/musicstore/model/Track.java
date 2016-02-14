@@ -4,13 +4,12 @@ import org.joda.money.Money;
 
 import java.time.Duration;
 
-public class Track extends CommercialMultimediaEntity implements Indexable {
+public class Track extends CommercialMultimediaEntity {
     private static int INDEX;
     private Style style;
 
 
     private Track(){
-        this.setId(createIndex());
     }
 
     public Track(String name) {
@@ -40,27 +39,12 @@ public class Track extends CommercialMultimediaEntity implements Indexable {
         super.setDuration(duration);
     }
 
-    public void correctionPrice(Money price) {
-        this.setPrice(price);
-        AllLists.recalculateValues(this);
-    }
-
-    public void correctionDuration(Duration duration) {
-        this.setDuration(duration);
-        AllLists.recalculateValues(this);
-    }
-
     public Style getStyle() {
         return style;
     }
 
     public void setStyle(Style style) {
         this.style = style;
-    }
-
-    @Override
-    public int createIndex() {
-        return 0;
     }
 
     @Override

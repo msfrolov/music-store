@@ -4,14 +4,13 @@ import org.joda.money.Money;
 
 import java.util.ArrayList;
 
-public class User extends NamedEntity implements Indexable {
+public class User extends NamedEntity {
     private static int INDEX;
     public static User ADMIN = new User("admin");
     private Money account = Money.parse("KZT 0");
     private ArrayList<Playlist> playlists;
 
     public User() {
-        this.setId(createIndex());
     }
 
     public User(String name) {
@@ -31,13 +30,6 @@ public class User extends NamedEntity implements Indexable {
 
     protected void setAccount(Money account) {
         this.account = account;
-    }
-
-
-
-    @Override
-    public int createIndex() {
-        return INDEX++;
     }
 
     @Override
