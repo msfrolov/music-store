@@ -10,6 +10,8 @@ public class Interactive {
     static Random random = new SecureRandom();
     static int numberOfTracks_ = 100;
     static int numberOfMusicCollection = 10;
+    static int numberOfTracksForList = 50;
+
     static ArrayList<Track> trackArrayList = new ArrayList<>();
     static ArrayList<Album> albumArrayList = new ArrayList<>();
     static User user = User.createRandomUser();
@@ -23,9 +25,19 @@ public class Interactive {
 
         user.buyAlbum(albumArrayList.get(random.nextInt(albumArrayList.size())), userPlaylist);
 
-        user.buyTrack(trackArrayList.get(random.nextInt(trackArrayList.size())), userPlaylist);
+        for (int i = 0; i < numberOfTracksForList; i++) {
+            user.buyTrack(trackArrayList.get(random.nextInt(trackArrayList.size())), userPlaylist);
+        }
+
 
         System.out.println(userPlaylist);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_NAME);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_ID);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_DURATION);
+        System.out.println(userPlaylist.toStringList());
     }
 
     public static void printExamplesAlbums() {

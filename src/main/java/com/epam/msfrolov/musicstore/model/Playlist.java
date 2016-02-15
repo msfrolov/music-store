@@ -57,5 +57,15 @@ public class Playlist extends MultimediaEntity implements Tracklist {
                 " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
                 '}';
     }
+    public String toStringList(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("PLAYLIST {");
+        for (Track track:tracklist) {
+            stringBuilder.append(track);
+            stringBuilder.append("\n");
+        }
+        stringBuilder.append('}');
+        return stringBuilder.toString();
+    }
 }
 

@@ -13,7 +13,7 @@ public class Track extends CommercialMultimediaEntity {
     private Style style;
 
     public static final Comparator<Track> COMPARE_DURATION = (o1, o2) -> o1.getDuration().compareTo(o2.getDuration());
-    public static final Comparator<Track> COMPARE_ID = (o1, o2) -> o1.getId().compareTo(o2.getId());
+    public static final Comparator<Track> COMPARE_ID = (o1, o2) -> Integer.compare(o1.getId(),o2.getId());
     public static final Comparator<Track> COMPARE_NAME = (o1, o2) -> o1.getName().compareTo(o2.getName());
     public static final Comparator<Track> COMPARE_STYLE = (o1, o2) -> o1.getStyle().compareTo(o2.getStyle());
 

@@ -4,6 +4,8 @@ public abstract class BaseEntity {
     private Integer id;
 
     public Integer getId() {
+        if (id==null)
+            return 0;
         return id;
     }
 
