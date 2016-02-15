@@ -15,6 +15,8 @@ public class Track extends CommercialMultimediaEntity {
     public static final Comparator<Track> COMPARE_NAME = (o1, o2) -> o1.getName().compareTo(o2.getName());
     public static final Comparator<Track> COMPARE_STYLE = (o1, o2) -> o1.getStyle().compareTo(o2.getStyle());
 
+    private Metadata details;
+
     private Track(){
     }
 
@@ -24,6 +26,14 @@ public class Track extends CommercialMultimediaEntity {
         this.setDuration(duration);
         this.setPrice(price);
         this.setDetails(details);
+    }
+
+    public Metadata getDetails() {
+        return details;
+    }
+
+    protected void setDetails(Metadata details) {
+        this.details = details;
     }
 
     @Override

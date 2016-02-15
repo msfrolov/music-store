@@ -8,15 +8,7 @@ import java.time.Duration;
 
 public abstract class MultimediaEntity extends NamedEntity {
     private Duration duration;
-    private Metadata details;
 
-    public Metadata getDetails() {
-        return details;
-    }
-
-    protected void setDetails(Metadata details) {
-        this.details = details;
-    }
 
     public Duration getDuration() {
         return duration;

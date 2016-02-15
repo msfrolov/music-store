@@ -42,15 +42,6 @@ public class MusicCollection extends CommercialMultimediaEntity implements  Trac
     }
 
     @Override
-    public boolean remove(Track file) {
-        if (!this.tracklist.contains(file)) {
-            tracklist.remove(file);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public void sort(Comparator<Track> comparator) {
         Collections.sort(this.tracklist, comparator);
     }

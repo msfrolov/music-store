@@ -15,40 +15,40 @@ public class TrackFactory {
 
     private static Random random = new SecureRandom();
 
-    private String getRandomName() {
+    private static String getRandomName() {
         return FileHandling.getRandomLine(track_name);
     }
 
-    private String getRandomStyle() {
+    private static String getRandomStyle() {
         return FileHandling.getRandomLine(music_style);
     }
 
-    private String getRandomAlbum() {
+    private static String getRandomAlbum() {
         return FileHandling.getRandomLine(track_album);
     }
 
-    private String getRandomArtist() {
+    private static String getRandomArtist() {
         return FileHandling.getRandomLine(track_artist);
     }
 
-    private Long getRandomFileSize() {
-        // Get file size from 1 to 9 megabyte - result in byte;
-        return (long) ((random.nextInt(9) + 1) * 1024 * 1024);
+    private static Long getRandomFileSize() {
+        // Get file size from 1 to 9 megabyte - result in bytes;
+        return (long) ((random.nextInt(9)+1) * 1024 * 1024);
     }
 
-    private String getRandomComment() {
+    private static String getRandomComment() {
         return FileHandling.getRandomLine(track_album);
     }
 
-    private Money getRandomPrise() {
+    private static Money getRandomPrise() {
         return Money.parse("KZT " + (random.nextInt(500) + 50));
     }
 
-    private Duration getRandomDuration() {
+    private static Duration getRandomDuration() {
         return Duration.ofSeconds((long) (random.nextInt(300) + 61));
     }
 
-    public Track createTrack() {
+    public static Track createTrack() {
         Metadata details = new Metadata(getRandomAlbum(), getRandomArtist(), getRandomFileSize(), getRandomComment());
         String name = getRandomName();
         Duration duration = getRandomDuration();

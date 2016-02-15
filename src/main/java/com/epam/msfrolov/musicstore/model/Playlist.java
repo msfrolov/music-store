@@ -33,15 +33,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
     public boolean add(Track file) {
         if (!this.tracklist.contains(file)) {
             tracklist.add(file);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean remove(Track file) {
-        if (!this.tracklist.contains(file)) {
-            tracklist.remove(file);
+            this.setDuration(this.getDuration().plus(file.getDuration()));
             return true;
         }
         return false;
