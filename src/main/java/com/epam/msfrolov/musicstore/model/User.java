@@ -1,5 +1,7 @@
 package com.epam.msfrolov.musicstore.model;
 
+import com.epam.msfrolov.musicstore.util.FileHandling;
+import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 
 import java.time.Duration;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
     private Money account = Money.parse("KZT 0");
-    private ArrayList<Playlist> playlists;
+    private ArrayList<Playlist> playlists = new ArrayList<>();
 
     public User() {
     }
@@ -18,8 +20,8 @@ public class User extends NamedEntity {
         this.setName(name);
     }
 
-    public static User createRandomUser(){
-        return new User();
+    public static User createRandomUser() {
+        return new User(FileHandling.getRandomLine(FileHandling.TRACK_ARTIST));
     }
 
     public Playlist createPlaylist(String name) {
@@ -29,19 +31,19 @@ public class User extends NamedEntity {
     }
 
     public void plusMoney(int i) {
-        this.account.plus(Money.parse("KZT " + (i)));
+        this.account = this.account.plus(Money.parse("KZT " + i));
     }
 
     public void minusMoney(int i) {
-        this.account.minus(Money.parse("KZT " + (i)));
+        this.account = this.account.minus(Money.parse("KZT " + i));
     }
 
     public void plusMoney(Money i) {
-        this.account.plus(i);
+        this.account = this.account.plus(i);
     }
 
     public void minusMoney(Money i) {
-        this.account.minus(i);
+        this.account = this.account.minus(i);
     }
 
     public boolean buyTrack(Track track, Playlist playlist) {
@@ -55,14 +57,16 @@ public class User extends NamedEntity {
         return true;
     }
 
-    public boolean buyAlbum(Track track, Playlist playlist) {
+    public boolean buyAlbum(Album album, Playlist playlist) {
         if (playlist.getOwner() != this)
             throw new IllegalArgumentException();
-        if (this.account.isLessThan(track.getPrice()))
+        if (this.account.isLessThan(album.getPrice()))
             return false;
 
-        this.minusMoney(track.getPrice());
-        playlist.add(track);
+        this.minusMoney(album.getPrice());
+        for (Track track : album.getList()) {
+            playlist.add(track);
+        }
         return true;
     }
 
@@ -77,8 +81,8 @@ public class User extends NamedEntity {
 
     @Override
     public String toString() {
-        return "user" + this.getName() + ' ' +
-                " " + account;
+        return "user: " + this.getName() + ' ' +
+                " " + this.account;
     }
 
     @Override

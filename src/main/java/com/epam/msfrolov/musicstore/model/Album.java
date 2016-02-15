@@ -4,10 +4,7 @@ import org.joda.money.Money;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
+import java.util.*;
 
 public class Album extends CommercialMultimediaEntity implements Tracklist {
 
@@ -75,5 +72,9 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
                 " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
                 " price: " + this.getPrice() +
                 '}';
+    }
+    @Override
+    public List<Track> getList() {
+        return Collections.unmodifiableList(tracklist);
     }
 }

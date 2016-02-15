@@ -2,15 +2,14 @@ package com.epam.msfrolov.musicstore.model;
 
 import org.joda.money.Money;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class Playlist extends MultimediaEntity implements Tracklist {
 
     private final User owner;
-    private ArrayList<Track> tracklist;
+    private ArrayList<Track> tracklist = new ArrayList<>();
 
     public Playlist() {
         this.owner = User.ADMIN;
@@ -44,5 +43,19 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         Collections.sort(this.tracklist, comparator);
     }
 
+    @Override
+    public List<Track> getList() {
+        return Collections.unmodifiableList(tracklist);
+    }
+
+    @Override
+    public String toString() {
+        return "PLAYLIST {" +
+                " owner: " + owner +
+                " name: " + this.getName() +
+                " number of tracks: " + this.tracklist.size() +
+                " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
+                '}';
+    }
 }
 
