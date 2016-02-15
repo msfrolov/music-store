@@ -63,7 +63,7 @@ public class Interactive {
     }
 
     public static void useCollectionFilter() {
-        Album filterAlbum =  Album.createAlbumByPriceRange(trackArrayList, 200, 400);
+        Album filterAlbum = Album.createAlbumByPriceRange(trackArrayList, 200, 400);
         System.out.println(filterAlbum.toString());
     }
 }

@@ -12,20 +12,4 @@ public class Metadata {
         SIZE_BYTE = size_byte;
         COMMENT = comment;
     }
-
-    public String getRandomALBUM() {
-        return ALBUM;
-    }
-
-    public String getRandomARTIST() {
-        return ARTIST;
-    }
-
-    public Long getRandomSIZE_BYTE() {
-        return SIZE_BYTE;
-    }
-
-    public String getRandomCOMMENT() {
-        return COMMENT;
-    }
 }
