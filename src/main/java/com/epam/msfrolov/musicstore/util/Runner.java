@@ -6,5 +6,6 @@ public class Runner {
         Interactive.useExamplesAlbums();
         Interactive.useExamplesUser();
         Interactive.useUsersPlaylists();
+        Interactive.useCollectionFilter();
     }
 }
