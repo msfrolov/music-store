@@ -19,6 +19,20 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
         this.setName(name);
     }
 
+    public static List<Track> filterByPriceRange(List<Track> list, Money min, Money max) {
+        if (min.isGreaterThan(max) || list == null)
+            throw new IllegalArgumentException();
+
+        List<Track> filteredList = new ArrayList<>();
+        for (Track track : list) {
+            if (track.getPrice().isGreaterThan(max) && track.getPrice().isLessThan(min) ||
+                    track.getPrice() == min || track.getPrice() == max) {
+                filteredList.add(track);
+            }
+        }
+        return filteredList;
+    }
+
     @Override
     protected void setPrice(Money price) {
         super.setPrice(price);
@@ -73,6 +87,7 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
                 " price: " + this.getPrice() +
                 '}';
     }
+
     @Override
     public List<Track> getList() {
         return Collections.unmodifiableList(tracklist);

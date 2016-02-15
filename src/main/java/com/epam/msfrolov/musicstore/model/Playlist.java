@@ -43,6 +43,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         Collections.sort(this.tracklist, comparator);
     }
 
+
     @Override
     public List<Track> getList() {
         return Collections.unmodifiableList(tracklist);
