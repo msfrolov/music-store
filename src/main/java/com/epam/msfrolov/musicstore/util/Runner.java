@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Runner {
     public static void main(String[] args) {
 
-        int numberOfTracks_= 100;
+        int numberOfTracks_ = 100;
         int numberOfMusicCollection = 10;
 
         ArrayList<Track> trackArrayList = new ArrayList<>();

@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 
-public class MusicCollection extends CommercialMultimediaEntity implements  Tracklist {
+public class MusicCollection extends CommercialMultimediaEntity implements Tracklist {
 
     private ArrayList<Track> tracklist;
 

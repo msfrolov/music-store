@@ -30,7 +30,7 @@ public class TrackFactory {
 
     private static Long getRandomFileSize() {
         // Get file size from 1 to 9 megabyte - result in bytes;
-        return (long) ((random.nextInt(9)+1) * 1024 * 1024);
+        return (long) ((random.nextInt(9) + 1) * 1024 * 1024);
     }
 
     private static String getRandomComment() {

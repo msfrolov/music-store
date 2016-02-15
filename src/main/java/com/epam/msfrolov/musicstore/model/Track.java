@@ -19,7 +19,7 @@ public class Track extends CommercialMultimediaEntity {
 
     private Metadata details;
 
-    private Track(){
+    private Track() {
     }
 
     public Track(String name, Style style, Duration duration, Money price, Metadata details) {

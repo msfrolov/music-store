@@ -9,7 +9,6 @@ import java.time.Duration;
 public abstract class MultimediaEntity extends NamedEntity {
     private Duration duration = Duration.ZERO;
 
-
     public Duration getDuration() {
         return duration;
     }
@@ -17,4 +16,6 @@ public abstract class MultimediaEntity extends NamedEntity {
     protected void setDuration(Duration duration) {
         this.duration = duration;
     }
+
+
 }
