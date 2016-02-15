@@ -20,10 +20,6 @@ public class User extends NamedEntity {
         this.setName(name);
     }
 
-    public static User createRandomUser() {
-        return new User(FileHandling.getRandomLine(FileHandling.TRACK_ARTIST));
-    }
-
     public Playlist createPlaylist(String name) {
         Playlist newPlaylist = new Playlist(this, name);
         playlists.add(newPlaylist);
