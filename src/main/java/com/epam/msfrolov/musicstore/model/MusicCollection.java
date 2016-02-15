@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Album extends CommercialMultimediaEntity implements  Tracklist {
-    private static int INDEX;
+public class MusicCollection extends CommercialMultimediaEntity implements  Tracklist {
+
     private ArrayList<Track> tracklist;
 
-    private Album() {
+    private MusicCollection() {
         this.tracklist = new ArrayList<>();
     }
 
-    public Album(String name) {
+    public MusicCollection(String name) {
         this();
         this.setName(name);
     }
@@ -61,9 +61,9 @@ public class Album extends CommercialMultimediaEntity implements  Tracklist {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        Album album = (Album) o;
+        MusicCollection musicCollection = (MusicCollection) o;
 
-        return tracklist != null ? tracklist.equals(album.tracklist) : album.tracklist == null;
+        return tracklist != null ? tracklist.equals(musicCollection.tracklist) : musicCollection.tracklist == null;
 
     }
 

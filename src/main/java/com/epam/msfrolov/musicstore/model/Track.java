@@ -1,37 +1,29 @@
 package com.epam.msfrolov.musicstore.model;
 
+import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 
 import java.time.Duration;
 import java.util.Comparator;
 
 public class Track extends CommercialMultimediaEntity {
-    private static int INDEX;
+
     private Style style;
 
-    public static final Comparator<Track> COMPARE_DURATION = (d1, d2) -> d1.getDuration().compareTo(d2.getDuration());
-    public static final Comparator<Track> COMPARE_ID = (d1, d2) -> d1.getId().compareTo(d2.getId());
-    public static final Comparator<Track> COMPARE_NAME = (d1, d2) -> d1.getName().compareTo(d2.getName());
-    public static final Comparator<Track> COMPARE_STYLE = (d1, d2) -> d1.getStyle().compareTo(d2.getStyle());
+    public static final Comparator<Track> COMPARE_DURATION = (o1, o2) -> o1.getDuration().compareTo(o2.getDuration());
+    public static final Comparator<Track> COMPARE_ID = (o1, o2) -> o1.getId().compareTo(o2.getId());
+    public static final Comparator<Track> COMPARE_NAME = (o1, o2) -> o1.getName().compareTo(o2.getName());
+    public static final Comparator<Track> COMPARE_STYLE = (o1, o2) -> o1.getStyle().compareTo(o2.getStyle());
 
     private Track(){
     }
 
-    public Track(String name) {
-        this();
+    public Track(String name, Style style, Duration duration, Money price, Metadata details) {
         this.setName(name);
-        this.setStyle(Style.NON_STYLE);
-    }
-
-    public Track(String name, Style style) {
-        this();
-        this.setName(name);
-        this.style = style;
-    }
-    public Track(String name, Style style, Duration duration, Money price) {
-        this(name, style);
+        this.setStyle(style);
         this.setDuration(duration);
         this.setPrice(price);
+        this.setDetails(details);
     }
 
     @Override

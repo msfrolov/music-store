@@ -5,7 +5,6 @@ import org.joda.money.Money;
 import java.util.ArrayList;
 
 public class User extends NamedEntity {
-    private static int INDEX;
     public static User ADMIN = new User("admin");
     private Money account = Money.parse("KZT 0");
     private ArrayList<Playlist> playlists;

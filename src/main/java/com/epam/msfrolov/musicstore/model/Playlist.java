@@ -9,7 +9,6 @@ import java.util.Comparator;
 
 public class Playlist extends MultimediaEntity implements Tracklist {
 
-    private static int INDEX;
     private final User owner;
     private ArrayList<Track> tracklist;
 
