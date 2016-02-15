@@ -49,7 +49,8 @@ public class Interactive {
             user.buyTrack(trackArrayList.get(random.nextInt(trackArrayList.size())), userPlaylist);
         }
     }
-    public static void useUsersPlaylists(){
+
+    public static void useUsersPlaylists() {
         System.out.println(userPlaylist);
         System.out.println(userPlaylist.toStringList());
         userPlaylist.sort(Track.COMPARE_NAME);
@@ -59,8 +60,6 @@ public class Interactive {
         userPlaylist.sort(Track.COMPARE_DURATION);
         System.out.println(userPlaylist.toStringList());
     }
-
-
 
 
 }

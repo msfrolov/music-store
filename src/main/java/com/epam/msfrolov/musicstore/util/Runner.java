@@ -5,5 +5,6 @@ public class Runner {
         Interactive.useExamplesTracks();
         Interactive.useExamplesAlbums();
         Interactive.useExamplesUser();
+        Interactive.useUsersPlaylists();
     }
 }
