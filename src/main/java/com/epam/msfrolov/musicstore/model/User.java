@@ -2,6 +2,7 @@ package com.epam.msfrolov.musicstore.model;
 
 import org.joda.money.Money;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class User extends NamedEntity {
@@ -17,10 +18,52 @@ public class User extends NamedEntity {
         this.setName(name);
     }
 
+    public static User createRandomUser(){
+        return new User();
+    }
+
     public Playlist createPlaylist(String name) {
         Playlist newPlaylist = new Playlist(this, name);
         playlists.add(newPlaylist);
         return newPlaylist;
+    }
+
+    public void plusMoney(int i) {
+        this.account.plus(Money.parse("KZT " + (i)));
+    }
+
+    public void minusMoney(int i) {
+        this.account.minus(Money.parse("KZT " + (i)));
+    }
+
+    public void plusMoney(Money i) {
+        this.account.plus(i);
+    }
+
+    public void minusMoney(Money i) {
+        this.account.minus(i);
+    }
+
+    public boolean buyTrack(Track track, Playlist playlist) {
+        if (playlist.getOwner() != this)
+            throw new IllegalArgumentException();
+        if (this.account.isLessThan(track.getPrice()))
+            return false;
+
+        this.minusMoney(track.getPrice());
+        playlist.add(track);
+        return true;
+    }
+
+    public boolean buyAlbum(Track track, Playlist playlist) {
+        if (playlist.getOwner() != this)
+            throw new IllegalArgumentException();
+        if (this.account.isLessThan(track.getPrice()))
+            return false;
+
+        this.minusMoney(track.getPrice());
+        playlist.add(track);
+        return true;
     }
 
     public Money getAccount() {
@@ -31,10 +74,11 @@ public class User extends NamedEntity {
         this.account = account;
     }
 
+
     @Override
     public String toString() {
         return "user" + this.getName() + ' ' +
-                "@" + account;
+                " " + account;
     }
 
     @Override

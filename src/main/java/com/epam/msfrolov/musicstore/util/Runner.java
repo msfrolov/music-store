@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.util;
 
-import com.epam.msfrolov.musicstore.model.MusicCollection;
+import com.epam.msfrolov.musicstore.model.Album;
 import com.epam.msfrolov.musicstore.model.MusicCollectionFactory;
 import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.model.TrackFactory;
@@ -20,11 +20,11 @@ public class Runner {
             System.out.println(newTrack);
 
         }
-        ArrayList<MusicCollection> musicCollectionArrayList = new ArrayList<>();
+        ArrayList<Album> albumArrayList = new ArrayList<>();
         for (int i = 0; i < numberOfMusicCollection; i++) {
-            MusicCollection newMusicCollection = MusicCollectionFactory.createMusicCollection(trackArrayList);
-            musicCollectionArrayList.add(newMusicCollection);
-            System.out.println(newMusicCollection);
+            Album newAlbum = MusicCollectionFactory.createMusicCollection(trackArrayList);
+            albumArrayList.add(newAlbum);
+            System.out.println(newAlbum);
         }
 
     }
