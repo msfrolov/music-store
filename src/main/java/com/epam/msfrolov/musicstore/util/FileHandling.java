@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Random;
 
 public class FileHandling {
+    public static String TRACK_ARTIST = "src/main/resources/track_artist";
+    public static String TRACK_NAME = "src/main/resources/track_name";
+    public static String TRACK_ALBUM = "src/main/resources/track_album";
+    public static String MUSIC_STYLE = "src/main/resources/music_style";
     private static List<String> lines;
     private static String fileName;
 

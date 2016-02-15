@@ -8,27 +8,24 @@ import java.time.Duration;
 import java.util.Random;
 
 public class TrackFactory {
-    private static String track_artist = "src/main/resources/track_artist";
-    private static String track_name = "src/main/resources/track_name";
-    private static String track_album = "src/main/resources/track_album";
-    private static String music_style = "src/main/resources/music_style";
+
 
     private static Random random = new SecureRandom();
 
     private static String getRandomName() {
-        return FileHandling.getRandomLine(track_name);
+        return FileHandling.getRandomLine(FileHandling.TRACK_NAME);
     }
 
     private static String getRandomStyle() {
-        return FileHandling.getRandomLine(music_style);
+        return FileHandling.getRandomLine(FileHandling.MUSIC_STYLE);
     }
 
     private static String getRandomAlbum() {
-        return FileHandling.getRandomLine(track_album);
+        return FileHandling.getRandomLine(FileHandling.TRACK_ALBUM);
     }
 
     private static String getRandomArtist() {
-        return FileHandling.getRandomLine(track_artist);
+        return FileHandling.getRandomLine(FileHandling.TRACK_ARTIST);
     }
 
     private static Long getRandomFileSize() {
@@ -37,7 +34,7 @@ public class TrackFactory {
     }
 
     private static String getRandomComment() {
-        return FileHandling.getRandomLine(track_album);
+        return FileHandling.getRandomLine(FileHandling.TRACK_ALBUM);
     }
 
     private static Money getRandomPrise() {

@@ -3,8 +3,10 @@ package com.epam.msfrolov.musicstore.model;
 import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Comparator;
+import java.util.Date;
 
 public class Track extends CommercialMultimediaEntity {
 
@@ -75,10 +77,12 @@ public class Track extends CommercialMultimediaEntity {
 
     @Override
     public String toString() {
-        return getName() + ' ' +
-                getStyle() + ' ' +
-                getDuration() + ' ' +
-                getPrice();
+        return "{ name: " + getName() +
+                " style: " + getStyle() +
+                " duration: " + (new SimpleDateFormat("mm:ss").format(new Date(getDuration().toMillis()))) +
+                " price: " + getPrice() +
+                " size: " + FileUtils.byteCountToDisplaySize(getDetails().SIZE_BYTE) +
+                " }";
     }
 
 

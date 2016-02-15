@@ -2,10 +2,12 @@ package com.epam.msfrolov.musicstore.model;
 
 import org.joda.money.Money;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 
 public class MusicCollection extends CommercialMultimediaEntity implements  Tracklist {
 
@@ -63,5 +65,15 @@ public class MusicCollection extends CommercialMultimediaEntity implements  Trac
         int result = super.hashCode();
         result = 31 * result + (tracklist != null ? tracklist.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "{ COLLECTION " +
+                " name: " + this.getName() +
+                " number of tracks: =" + this.tracklist.size() +
+                " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
+                " price: " + this.getPrice() +
+                '}';
     }
 }

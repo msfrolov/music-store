@@ -28,4 +28,9 @@ public class Style extends NamedEntity implements Comparable<Style> {
     public int compareTo(Style style) {
         return this.getName().compareTo(style.getName());
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

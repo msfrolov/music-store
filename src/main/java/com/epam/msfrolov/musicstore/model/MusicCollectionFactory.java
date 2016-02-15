@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 public class MusicCollectionFactory {
-    public static MusicCollection createMusicCollection(List<Track> trackList){
-        String track_name = "src/main/resources/track_name";
-        MusicCollection newMusicCollection = new MusicCollection(FileHandling.getRandomLine(track_name));
+    public static MusicCollection createMusicCollection(List<Track> trackList) {
+        MusicCollection newMusicCollection = new MusicCollection(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
 
         Random random = new SecureRandom();
         int numberOfSongs = (random.nextInt(trackList.size()));
