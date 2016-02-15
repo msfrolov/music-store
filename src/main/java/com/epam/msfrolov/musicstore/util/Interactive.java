@@ -15,8 +15,7 @@ public class Interactive {
     static ArrayList<Track> trackArrayList = new ArrayList<>();
     static ArrayList<Album> albumArrayList = new ArrayList<>();
     static User user = UserFactory.getRandomUser();
-    static Playlist firstUserPlaylist = user.createPlaylist(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
-    static Playlist secondUserPlaylist = user.createPlaylist(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
+    static Playlist userPlaylist = user.createPlaylist(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
 
 
     public static void useExamplesTracks() {
@@ -45,26 +44,26 @@ public class Interactive {
         user.plusMoney(1000);
         System.out.println(user);
 
-        user.buyAlbum(albumArrayList.get(random.nextInt(albumArrayList.size())), firstUserPlaylist);
+        user.buyAlbum(albumArrayList.get(random.nextInt(albumArrayList.size())), userPlaylist);
 
         for (int i = 0; i < numberOfTracksForList; i++) {
-            user.buyTrack(trackArrayList.get(random.nextInt(trackArrayList.size())), firstUserPlaylist);
+            user.buyTrack(trackArrayList.get(random.nextInt(trackArrayList.size())), userPlaylist);
         }
     }
 
     public static void useUsersPlaylists() {
-        System.out.println(firstUserPlaylist);
-        System.out.println(firstUserPlaylist.toStringList());
-        firstUserPlaylist.sort(Track.COMPARE_NAME);
-        System.out.println(firstUserPlaylist.toStringList());
-        firstUserPlaylist.sort(Track.COMPARE_ID);
-        System.out.println(firstUserPlaylist.toStringList());
-        firstUserPlaylist.sort(Track.COMPARE_DURATION);
-        System.out.println(firstUserPlaylist.toStringList());
+        System.out.println(userPlaylist);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_NAME);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_ID);
+        System.out.println(userPlaylist.toStringList());
+        userPlaylist.sort(Track.COMPARE_DURATION);
+        System.out.println(userPlaylist.toStringList());
     }
 
     public static void useCollectionFilter() {
-        Album filterAlbum =  Album.createAlbumByPriceRange(trackArrayList, 80, 90);
+        Album filterAlbum =  Album.createAlbumByPriceRange(trackArrayList, 200, 400);
         System.out.println(filterAlbum.toString());
     }
 }

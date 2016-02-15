@@ -19,15 +19,16 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
         this.setName(name);
     }
 
-    public static Album createAlbumByPriceRange(List<Track> list, int minim, int maxim) {
-        Money min = Money.parse("KZT " + minim);
-        Money max = Money.parse("KZT " + maxim);
+    public static Album createAlbumByPriceRange(List<Track> list, int minimum, int maximum) {
+        Money min = Money.parse("KZT " + minimum);
+        Money max = Money.parse("KZT " + maximum);
+
         if (min.isGreaterThan(max) || list == null)
             throw new IllegalArgumentException();
 
         Album newAlbum = new Album("Price: min " + min + " max " + max);
         for (Track track : list) {
-            if (track.getPrice().isGreaterThan(max) && track.getPrice().isLessThan(min) ||
+            if (track.getPrice().isGreaterThan(min) && track.getPrice().isLessThan(max) ||
                     track.getPrice() == min || track.getPrice() == max) {
                 newAlbum.add(track);
             }
