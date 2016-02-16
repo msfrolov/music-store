@@ -6,11 +6,15 @@ import java.util.List;
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
     private Account account;
-    private List<Playlist> boughtTracks = new ArrayList<>();
+    private List<Track> boughtTracks = new ArrayList<>();
     private List<Playlist> playlists = new ArrayList<>();
 
     public User(String name) {
         this.setName(name);
+    }
+
+    public List<Track> getBoughtTracks() {
+        return boughtTracks;
     }
 
     public Playlist createPlaylist(String name) {

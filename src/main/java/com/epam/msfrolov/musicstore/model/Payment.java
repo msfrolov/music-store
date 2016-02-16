@@ -7,28 +7,33 @@ public class Payment extends BaseEntity {
     User buyer;
     Money sum;
     boolean done;
+    String details;
 
-    private Payment(User seller, User buyer, Money sum) {
-        this.seller = seller;
-        this.buyer = buyer;
+    private Payment(User recipient, User sender, Money sum, DetailsOfPayment details) {
+        this.seller = recipient;
+        this.buyer = sender;
         this.sum = sum;
-        buyer.getAccount().writeOff(sum);
-        seller.getAccount().accrual(sum);
+        sender.getAccount().writeOff(sum);
+        recipient.getAccount().accrual(sum);
         this.done = true;
     }
 
-    public static Payment conduct(User seller, User buyer, Money sum) {
-        return new Payment(seller, buyer, sum);
+    public static Payment conduct(User recipient, User sender, Money sum, DetailsOfPayment details) {
+        return new Payment(recipient, sender, sum, details);
+    }
+
+    public boolean isDone(){
+        return done;
     }
 
     @Override
     public String toString() {
         return "Payment{" +
-                "id" +
-                ", seller=" + seller +
-                ", buyer=" + buyer +
+                "recipient=" + seller +
+                ", sender=" + buyer +
                 ", sum=" + sum +
                 ", done=" + done +
+                ", details='" + details + '\'' +
                 '}';
     }
 
@@ -40,9 +45,12 @@ public class Payment extends BaseEntity {
 
         Payment payment = (Payment) o;
 
-        if (done != payment.done) return false;
-        if (buyer != null ? !buyer.equals(payment.buyer) : payment.buyer != null) return false;
-        return sum != null ? sum.equals(payment.sum) : payment.sum == null;
+        return done == payment.done
+                && (seller != null ? seller.equals(payment.seller) : payment.seller == null
+                && (buyer != null ? buyer.equals(payment.buyer) : payment.buyer == null
+                && (sum != null ? sum.equals(payment.sum) : payment.sum == null
+                && (details != null ? details.equals(payment.details) : payment.details == null))));
+
     }
 
     @Override
@@ -52,6 +60,7 @@ public class Payment extends BaseEntity {
         result = 31 * result + (buyer != null ? buyer.hashCode() : 0);
         result = 31 * result + (sum != null ? sum.hashCode() : 0);
         result = 31 * result + (done ? 1 : 0);
+        result = 31 * result + (details != null ? details.hashCode() : 0);
         return result;
     }
 }
