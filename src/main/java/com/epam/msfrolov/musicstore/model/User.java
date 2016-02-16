@@ -1,22 +1,15 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.util.FileHandling;
-import org.apache.commons.io.FileUtils;
-import org.joda.money.Money;
-
-import java.time.Duration;
 import java.util.ArrayList;
+import java.util.List;
 
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
-    private Money account = Money.parse("KZT 0");
-    private ArrayList<Playlist> playlists = new ArrayList<>();
-
-    public User() {
-    }
+    private Account account;
+    private List<Playlist> boughtTracks = new ArrayList<>();
+    private List<Playlist> playlists = new ArrayList<>();
 
     public User(String name) {
-        this();
         this.setName(name);
     }
 
@@ -26,51 +19,11 @@ public class User extends NamedEntity {
         return newPlaylist;
     }
 
-    public void plusMoney(int i) {
-        this.account = this.account.plus(Money.parse("KZT " + i));
-    }
-
-    public void minusMoney(int i) {
-        this.account = this.account.minus(Money.parse("KZT " + i));
-    }
-
-    public void plusMoney(Money i) {
-        this.account = this.account.plus(i);
-    }
-
-    public void minusMoney(Money i) {
-        this.account = this.account.minus(i);
-    }
-
-    public boolean buyTrack(Track track, Playlist playlist) {
-        if (playlist.getOwner() != this)
-            throw new IllegalArgumentException();
-        if (this.account.isLessThan(track.getPrice()))
-            return false;
-
-        this.minusMoney(track.getPrice());
-        playlist.add(track);
-        return true;
-    }
-
-    public boolean buyAlbum(Album album, Playlist playlist) {
-        if (playlist.getOwner() != this)
-            throw new IllegalArgumentException();
-        if (this.account.isLessThan(album.getPrice()))
-            return false;
-
-        this.minusMoney(album.getPrice());
-        for (Track track : album.getList()) {
-            playlist.add(track);
-        }
-        return true;
-    }
-
-    public Money getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    protected void setAccount(Money account) {
+    protected void setAccount(Account account) {
         this.account = account;
     }
 
