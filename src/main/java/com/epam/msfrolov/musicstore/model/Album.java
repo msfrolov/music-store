@@ -31,9 +31,14 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
 
     @Override
     public boolean add(Track file) {
+        if (file==null)
+            return false;
         if (!this.tracklist.contains(file)) {
             tracklist.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
+            if (this.getPrice() == null)
+                this.setPrice(file.getPrice());
+            else
             this.setPrice(this.getPrice().plus(file.getPrice()));
             return true;
         }

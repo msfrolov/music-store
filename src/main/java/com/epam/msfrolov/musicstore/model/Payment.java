@@ -13,7 +13,11 @@ public class Payment extends BaseEntity {
         this.seller = recipient;
         this.buyer = sender;
         this.sum = sum;
+        if (sender.getAccount()==null)
+        sender.setAccount(new Account(sender));
         sender.getAccount().writeOff(sum);
+        if (recipient.getAccount()==null)
+            recipient.setAccount(new Account(recipient));
         recipient.getAccount().accrual(sum);
         this.done = true;
     }

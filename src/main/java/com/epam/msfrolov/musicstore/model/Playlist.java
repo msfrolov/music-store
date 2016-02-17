@@ -44,7 +44,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         Collections.sort(this.value, comparator);
     }
 
-    public Playlist filterByName(String substring, User user) {
+    public Playlist filterByName(String substring) {
         Playlist newPlaylist = new Playlist(this.owner);
         for (Track track : this.getList()) {
             if (track.getName().contains(substring))

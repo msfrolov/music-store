@@ -8,12 +8,14 @@ public class Account extends BaseEntity {
 
     public Account(User user) {
         this.owner = user;
+        this.value = Money.parse("KZT 0");
     }
 
-    public void writeOff(Money value) {
+    public boolean writeOff(Money value) {
         if (value.isGreaterThan(this.value))
-            throw new IllegalArgumentException();
+            return false;
         this.value = this.value.minus(value);
+        return true;
     }
 
     public void accrual(Money value) {

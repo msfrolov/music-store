@@ -3,6 +3,7 @@ package com.epam.msfrolov.musicstore.util;
 import com.epam.msfrolov.musicstore.model.*;
 import org.joda.money.Money;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -72,10 +73,11 @@ public class Interactive {
         userPlaylist.sort(Track.COMPARE_DURATION);
         System.out.println("COMPARE_DURATION");
         System.out.println(userPlaylist.toStringList());
-        //TODO
-        /*
-        System.out.println(userPlaylist.filterByDuration());
-        System.out.println(userPlaylist.filterByName());
-        System.out.println(userPlaylist.filterByStyle(g));*/
+        System.out.println("filterByDuration");
+        System.out.println(userPlaylist.filterByDuration(Duration.ofSeconds(200),Duration.ofSeconds(300)));
+        System.out.println("filterByName");
+        System.out.println(userPlaylist.filterByName("Beatles"));
+        System.out.println("filterByStyle");
+        System.out.println(userPlaylist.filterByStyle(new Style(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE))));
     }
 }
