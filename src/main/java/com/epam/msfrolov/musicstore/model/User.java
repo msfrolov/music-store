@@ -17,6 +17,10 @@ public class User extends NamedEntity {
         return boughtTracks;
     }
 
+    public List<Playlist> getPlaylists() {
+        return playlists;
+    }
+
     public Playlist createPlaylist(String name) {
         Playlist newPlaylist = new Playlist(this, name);
         playlists.add(newPlaylist);
@@ -31,29 +35,4 @@ public class User extends NamedEntity {
         this.account = account;
     }
 
-
-    @Override
-    public String toString() {
-        return "user: " + this.getName() + ' ' +
-                " " + this.account;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        User user = (User) o;
-
-        return account != null ? account.equals(user.account) : user.account == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (account != null ? account.hashCode() : 0);
-        return result;
-    }
 }

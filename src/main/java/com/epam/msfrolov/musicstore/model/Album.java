@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Album extends CommercialMultimediaEntity implements Tracklist {
 
-    private ArrayList<Track> tracklist;
+    private List<Track> tracklist;
 
     private Album() {
         this.tracklist = new ArrayList<>();

@@ -1,7 +1,5 @@
 package com.epam.msfrolov.musicstore.model;
 
-import org.joda.money.Money;
-
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
@@ -9,7 +7,7 @@ import java.util.*;
 public class Playlist extends MultimediaEntity implements Tracklist {
 
     private final User owner;
-    private ArrayList<Track> tracklist = new ArrayList<>();
+    private List<Track> value = new ArrayList<>();
 
     public Playlist() {
         this.owner = User.ADMIN;
@@ -30,8 +28,8 @@ public class Playlist extends MultimediaEntity implements Tracklist {
 
     @Override
     public boolean add(Track file) {
-        if (!this.tracklist.contains(file)) {
-            tracklist.add(file);
+        if (!this.value.contains(file)) {
+            value.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
             return true;
         }
@@ -40,13 +38,38 @@ public class Playlist extends MultimediaEntity implements Tracklist {
 
     @Override
     public void sort(Comparator<Track> comparator) {
-        Collections.sort(this.tracklist, comparator);
+        Collections.sort(this.value, comparator);
     }
 
+    public Playlist filterByName(Playlist source, String substring, User user, String name) {
+        Playlist newPlaylist = new Playlist(user, name);
+        for (Track track : source.getList()) {
+            if (track.getName().contains(name))
+                newPlaylist.add(track);
+        }
+        return newPlaylist;
+    }
+
+    public Playlist filterByStyle(Playlist source, Style style, User user) {
+        Playlist newPlaylist = new Playlist(user);
+        for (Track track : source.getList())
+            if (track.getStyle() == style)
+                newPlaylist.add(track);
+        return newPlaylist;
+    }
+
+    public Playlist filterByDuration(Playlist source, Duration min, Duration max, User user) {
+        Playlist newPlaylist = new Playlist(user);
+        for (Track track : source.getList())
+            if (track.getDuration().compareTo(min) >= 0 &&
+                    track.getDuration().compareTo(max) <= 0)
+                newPlaylist.add(track);
+        return newPlaylist;
+    }
 
     @Override
     public List<Track> getList() {
-        return Collections.unmodifiableList(tracklist);
+        return Collections.unmodifiableList(value);
     }
 
     @Override
@@ -54,7 +77,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         return "PLAYLIST {" +
                 " owner: " + owner +
                 " name: " + this.getName() +
-                " number of tracks: " + this.tracklist.size() +
+                " number of tracks: " + this.value.size() +
                 " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
                 '}';
     }
@@ -63,7 +86,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("PLAYLIST {");
         stringBuilder.append("\n");
-        for (Track track : tracklist) {
+        for (Track track : value) {
             stringBuilder.append(track);
             stringBuilder.append("\n");
         }
