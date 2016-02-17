@@ -7,7 +7,7 @@ public class Payment extends BaseEntity {
     User sender;
     Money sum;
     boolean done;
-    String details;
+    DetailsOfPayment details;
 
     private Payment(User sender, User recipient, Money sum, DetailsOfPayment details) {
         this.recipient = recipient;
@@ -19,6 +19,7 @@ public class Payment extends BaseEntity {
         if (recipient.getAccount() == null)
             recipient.setAccount(new Account(recipient));
         recipient.getAccount().accrual(sum);
+        this.details = details;
         this.done = true;
     }
 
@@ -35,8 +36,8 @@ public class Payment extends BaseEntity {
     @Override
     public String toString() {
         return "Payment{" +
-                "recipient=" + recipient +
-                ", sender=" + sender +
+                "sender=" + sender +
+                ", recipient=" + recipient +
                 ", sum=" + sum +
                 ", done=" + done +
                 ", details='" + details + '\'' +

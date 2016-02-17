@@ -16,6 +16,8 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
     public Album(String name) {
         this();
         this.setName(name);
+        this.setPrice(Money.parse("KZT 0"));
+        this.setDuration(Duration.ZERO);
     }
 
     @Override
@@ -37,13 +39,33 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
     public boolean add(Track file) {
         if (file == null)
             return false;
-        if (!this.tracklist.contains(file)) {
+        if (!(this.tracklist.indexOf(file)<0)) {
             tracklist.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
-            if (this.getPrice() == null)
+            if (this.getPrice() == null) {
                 this.setPrice(file.getPrice());
-            else
+                System.out.println("!!!!!2");
+                return false;
+            } else
                 this.setPrice(this.getPrice().plus(file.getPrice()));
+            return true;
+        }
+        System.out.println("!!!!!1");
+        return false;
+
+    }
+
+    @Override
+    public boolean remove(Track file) {
+        if (file == null)
+            return false;
+        if (this.tracklist.indexOf(file)<0) {
+            tracklist.remove(file);
+            this.setDuration(this.getDuration().minus(file.getDuration()));
+            if (this.getPrice() == null)
+                return false;
+            else
+                this.setPrice(this.getPrice().minus(file.getPrice()));
             return true;
         }
         return false;

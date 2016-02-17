@@ -10,10 +10,12 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     public Playlist() {
         this.owner = User.ADMIN;
+        this.setDuration(Duration.ZERO);
     }
 
     public Playlist(User owner) {
         this.owner = owner;
+        this.setDuration(Duration.ZERO);
     }
 
     public Playlist(User owner, String name) {
@@ -33,11 +35,21 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
     @Override
     public boolean add(Track file) {
         if (owner != User.ADMIN)
-            if (!owner.getBoughtTracks().contains(file))
+            if (!(owner.getBoughtTracks().indexOf(file)<0))
                 return false;
         if (!this.value.contains(file)) {
             value.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean remove(Track file) {
+        if (this.value.indexOf(file)<0) {
+            value.remove(file);
+            this.setDuration(this.getDuration().minus(file.getDuration()));
             return true;
         }
         return false;
@@ -58,7 +70,6 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
     }
 
 
-
     public Playlist filterByStyle(Style style) {
         Playlist newPlaylist = new Playlist(this.owner);
         for (Track track : this.getList())
@@ -66,7 +77,6 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
                 newPlaylist.add(track);
         return newPlaylist;
     }
-
 
 
     public Playlist filterByDuration(Duration min, Duration max) {
@@ -77,7 +87,6 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
                 newPlaylist.add(track);
         return newPlaylist;
     }
-
 
 
     @Override
