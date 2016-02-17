@@ -1,5 +1,8 @@
 package com.epam.msfrolov.musicstore.util;
 
+import com.epam.msfrolov.musicstore.factory.AlbumFactory;
+import com.epam.msfrolov.musicstore.factory.TrackFactory;
+import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.model.*;
 import org.joda.money.Money;
 
@@ -34,7 +37,7 @@ public class Interactive {
         System.out.println("---------------------Albums--------------------------");
 
         for (int i = 0; i < numberOfMusicCollection; i++) {
-            Album newAlbum = MusicCollectionFactory.createMusicCollection(trackArrayList);
+            Album newAlbum = AlbumFactory.createMusicCollection(trackArrayList);
             albumArrayList.add(newAlbum);
             System.out.println(newAlbum);
         }
@@ -63,21 +66,47 @@ public class Interactive {
                 System.out.println("You have not bought this track!");
         }
         System.out.println(userPlaylist);
+
         System.out.println(userPlaylist.toStringList());
+
+        userPlaylist.sort(Track.COMPARE_STYLE);
+        System.out.println("COMPARE_STYLE");
+        System.out.println(userPlaylist.toStringList());
+
         userPlaylist.sort(Track.COMPARE_NAME);
         System.out.println("COMPARE_NAME");
         System.out.println(userPlaylist.toStringList());
+
         userPlaylist.sort(Track.COMPARE_ID);
         System.out.println("COMPARE_ID");
         System.out.println(userPlaylist.toStringList());
+
         userPlaylist.sort(Track.COMPARE_DURATION);
         System.out.println("COMPARE_DURATION");
         System.out.println(userPlaylist.toStringList());
+
         System.out.println("filterByDuration");
         System.out.println(userPlaylist.filterByDuration(Duration.ofSeconds(200),Duration.ofSeconds(300)));
+
         System.out.println("filterByName");
         System.out.println(userPlaylist.filterByName("Beatles"));
+
         System.out.println("filterByStyle");
         System.out.println(userPlaylist.filterByStyle(new Style(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE))));
+    }
+
+    public static void useIterator(){
+        Album randomAlbum = albumArrayList.get(random.nextInt(albumArrayList.size()));
+
+        System.out.println("Iterator Album");
+        for (Track track:randomAlbum) {
+            System.out.println(track);
+        }
+
+        System.out.println("Iterator Playlist");
+        for (Track track:userPlaylist) {
+            System.out.println(track);
+        }
+
     }
 }

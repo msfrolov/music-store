@@ -3,70 +3,43 @@ package com.epam.msfrolov.musicstore.model;
 import org.joda.money.Money;
 
 public class Payment extends BaseEntity {
-    User seller;
-    User buyer;
+    User recipient;
+    User sender;
     Money sum;
     boolean done;
     String details;
 
-    private Payment(User recipient, User sender, Money sum, DetailsOfPayment details) {
-        this.seller = recipient;
-        this.buyer = sender;
+    private Payment(User sender, User recipient, Money sum, DetailsOfPayment details) {
+        this.recipient = recipient;
+        this.sender = sender;
         this.sum = sum;
-        if (sender.getAccount()==null)
-        sender.setAccount(new Account(sender));
+        if (sender.getAccount() == null)
+            sender.setAccount(new Account(sender));
         sender.getAccount().writeOff(sum);
-        if (recipient.getAccount()==null)
+        if (recipient.getAccount() == null)
             recipient.setAccount(new Account(recipient));
         recipient.getAccount().accrual(sum);
         this.done = true;
     }
 
-    public static Payment conduct(User recipient, User sender, Money sum, DetailsOfPayment details) {
-        Payment payment = new Payment(recipient, sender, sum, details);
+    public static Payment conduct(User sender, User recipient, Money sum, DetailsOfPayment details) {
+        Payment payment = new Payment(sender, recipient, sum, details);
         System.out.println(payment);
         return payment;
     }
 
-    public boolean isDone(){
+    public boolean isDone() {
         return done;
     }
 
     @Override
     public String toString() {
         return "Payment{" +
-                "recipient=" + seller +
-                ", sender=" + buyer +
+                "recipient=" + recipient +
+                ", sender=" + sender +
                 ", sum=" + sum +
                 ", done=" + done +
                 ", details='" + details + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Payment payment = (Payment) o;
-
-        return done == payment.done
-                && (seller != null ? seller.equals(payment.seller) : payment.seller == null
-                && (buyer != null ? buyer.equals(payment.buyer) : payment.buyer == null
-                && (sum != null ? sum.equals(payment.sum) : payment.sum == null
-                && (details != null ? details.equals(payment.details) : payment.details == null))));
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (seller != null ? seller.hashCode() : 0);
-        result = 31 * result + (buyer != null ? buyer.hashCode() : 0);
-        result = 31 * result + (sum != null ? sum.hashCode() : 0);
-        result = 31 * result + (done ? 1 : 0);
-        result = 31 * result + (details != null ? details.hashCode() : 0);
-        return result;
     }
 }

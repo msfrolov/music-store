@@ -1,11 +1,13 @@
-package com.epam.msfrolov.musicstore.model;
+package com.epam.msfrolov.musicstore.factory;
 
+import com.epam.msfrolov.musicstore.model.Album;
+import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.util.FileHandling;
 
 import java.util.List;
 import java.util.Random;
 
-public class MusicCollectionFactory {
+public class AlbumFactory {
     public static Album createMusicCollection(List<Track> trackList) {
         Album newAlbum = new Album(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
         Random random = new Random();

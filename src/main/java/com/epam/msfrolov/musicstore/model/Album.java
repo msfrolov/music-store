@@ -2,11 +2,10 @@ package com.epam.msfrolov.musicstore.model;
 
 import org.joda.money.Money;
 
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
-public class Album extends CommercialMultimediaEntity implements Tracklist {
+public class Album extends CommercialMultimediaEntity implements Tracklist, Iterable<Track> {
 
     private List<Track> tracklist;
 
@@ -17,6 +16,11 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
     public Album(String name) {
         this();
         this.setName(name);
+    }
+
+    @Override
+    public Iterator<Track> iterator() {
+        return tracklist.iterator();
     }
 
     @Override
@@ -31,7 +35,7 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
 
     @Override
     public boolean add(Track file) {
-        if (file==null)
+        if (file == null)
             return false;
         if (!this.tracklist.contains(file)) {
             tracklist.add(file);
@@ -39,7 +43,7 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
             if (this.getPrice() == null)
                 this.setPrice(file.getPrice());
             else
-            this.setPrice(this.getPrice().plus(file.getPrice()));
+                this.setPrice(this.getPrice().plus(file.getPrice()));
             return true;
         }
         return false;
@@ -48,25 +52,6 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
     @Override
     public void sort(Comparator<Track> comparator) {
         Collections.sort(this.tracklist, comparator);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Album album = (Album) o;
-
-        return tracklist != null ? tracklist.equals(album.tracklist) : album.tracklist == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (tracklist != null ? tracklist.hashCode() : 0);
-        return result;
     }
 
     @Override
@@ -83,4 +68,5 @@ public class Album extends CommercialMultimediaEntity implements Tracklist {
     public List<Track> getList() {
         return Collections.unmodifiableList(tracklist);
     }
+
 }

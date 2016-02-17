@@ -11,6 +11,7 @@ public class User extends NamedEntity {
 
     public User(String name) {
         this.setName(name);
+        this.account = new Account(this);
     }
 
     public List<Track> getBoughtTracks() {
@@ -35,5 +36,4 @@ public class User extends NamedEntity {
     protected void setAccount(Account account) {
         this.account = account;
     }
-
 }

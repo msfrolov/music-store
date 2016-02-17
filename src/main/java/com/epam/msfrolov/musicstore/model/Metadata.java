@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.model;
 
-public class Metadata {
+public class Metadata extends BaseEntity{
     public final String ALBUM;
     public final String ARTIST;
     public final Long SIZE_BYTE;

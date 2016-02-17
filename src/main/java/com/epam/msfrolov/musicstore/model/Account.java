@@ -33,26 +33,5 @@ public class Account extends BaseEntity {
                 ", value=" + value +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Account account = (Account) o;
-
-        return owner != null ? owner.equals(account.owner) : account.owner == null
-                && (value != null ? value.equals(account.value) : account.value == null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (owner != null ? owner.hashCode() : 0);
-        result = 31 * result + (value != null ? value.hashCode() : 0);
-        return result;
-    }
 }
 

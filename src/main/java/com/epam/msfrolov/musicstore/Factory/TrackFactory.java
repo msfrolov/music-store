@@ -1,5 +1,8 @@
-package com.epam.msfrolov.musicstore.model;
+package com.epam.msfrolov.musicstore.factory;
 
+import com.epam.msfrolov.musicstore.model.Metadata;
+import com.epam.msfrolov.musicstore.model.Style;
+import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.util.FileHandling;
 import org.joda.money.Money;
 

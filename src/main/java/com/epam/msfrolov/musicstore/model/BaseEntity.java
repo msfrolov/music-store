@@ -4,8 +4,8 @@ public abstract class BaseEntity {
     private Integer id;
 
     public Integer getId() {
-        if (id==null)
-            return 0;
+        if (id == null)
+            return -1;
         return id;
     }
 
@@ -14,7 +14,7 @@ public abstract class BaseEntity {
     }
 
     public boolean isNew() {
-        return (this.id == 0);
+        return (this.id == null);
     }
 
     @Override
