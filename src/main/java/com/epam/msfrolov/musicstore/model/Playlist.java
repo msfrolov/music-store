@@ -28,6 +28,9 @@ public class Playlist extends MultimediaEntity implements Tracklist {
 
     @Override
     public boolean add(Track file) {
+        if (owner != User.ADMIN)
+            if (!owner.getBoughtTracks().contains(file))
+                return false;
         if (!this.value.contains(file)) {
             value.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
@@ -41,26 +44,52 @@ public class Playlist extends MultimediaEntity implements Tracklist {
         Collections.sort(this.value, comparator);
     }
 
-    public Playlist filterByName(Playlist source, String substring, User user, String name) {
-        Playlist newPlaylist = new Playlist(user, name);
-        for (Track track : source.getList()) {
-            if (track.getName().contains(name))
+    public Playlist filterByName(String substring, User user) {
+        Playlist newPlaylist = new Playlist(this.owner);
+        for (Track track : this.getList()) {
+            if (track.getName().contains(substring))
                 newPlaylist.add(track);
         }
         return newPlaylist;
     }
 
-    public Playlist filterByStyle(Playlist source, Style style, User user) {
+    public Playlist filterByName(List<Track> source, String substring, User user) {
         Playlist newPlaylist = new Playlist(user);
-        for (Track track : source.getList())
+        for (Track track : source) {
+            if (track.getName().contains(substring))
+                newPlaylist.add(track);
+        }
+        return newPlaylist;
+    }
+
+    public Playlist filterByStyle(Style style) {
+        Playlist newPlaylist = new Playlist(this.owner);
+        for (Track track : this.getList())
             if (track.getStyle() == style)
                 newPlaylist.add(track);
         return newPlaylist;
     }
 
-    public Playlist filterByDuration(Playlist source, Duration min, Duration max, User user) {
+    public Playlist filterByStyle(List<Track> source, Style style, User user) {
         Playlist newPlaylist = new Playlist(user);
-        for (Track track : source.getList())
+        for (Track track : source)
+            if (track.getStyle() == style)
+                newPlaylist.add(track);
+        return newPlaylist;
+    }
+
+    public Playlist filterByDuration(Duration min, Duration max) {
+        Playlist newPlaylist = new Playlist(this.owner);
+        for (Track track : this.getList())
+            if (track.getDuration().compareTo(min) >= 0 &&
+                    track.getDuration().compareTo(max) <= 0)
+                newPlaylist.add(track);
+        return newPlaylist;
+    }
+
+    public Playlist filterByDuration(List<Track> source, Duration min, Duration max, User user) {
+        Playlist newPlaylist = new Playlist(user);
+        for (Track track : source)
             if (track.getDuration().compareTo(min) >= 0 &&
                     track.getDuration().compareTo(max) <= 0)
                 newPlaylist.add(track);
@@ -78,7 +107,7 @@ public class Playlist extends MultimediaEntity implements Tracklist {
                 " owner: " + owner +
                 " name: " + this.getName() +
                 " number of tracks: " + this.value.size() +
-                " duration: " + (new SimpleDateFormat("mmm:ss").format(new Date(this.getDuration().toMillis()))) +
+                " duration: " + Track.durationFormat(getDuration()) +
                 '}';
     }
 

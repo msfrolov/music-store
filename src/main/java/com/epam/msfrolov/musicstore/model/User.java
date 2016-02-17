@@ -22,6 +22,7 @@ public class User extends NamedEntity {
     }
 
     public Playlist createPlaylist(String name) {
+
         Playlist newPlaylist = new Playlist(this, name);
         playlists.add(newPlaylist);
         return newPlaylist;

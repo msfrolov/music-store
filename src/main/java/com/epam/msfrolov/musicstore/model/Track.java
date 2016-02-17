@@ -79,10 +79,16 @@ public class Track extends CommercialMultimediaEntity {
     public String toString() {
         return "{ name: " + getName() +
                 " style: " + getStyle() +
-                " duration: " + (new SimpleDateFormat("mm:ss").format(new Date(getDuration().toMillis()))) +
+                " duration: " + Track.durationFormat(getDuration()) +
                 " price: " + getPrice() +
                 " size: " + FileUtils.byteCountToDisplaySize(getDetails().SIZE_BYTE) +
                 " }";
+    }
+    public static String durationFormat(Duration duration){
+        if (duration==null)
+            return "";
+        long l = duration.getSeconds();
+        return String.format("%d:%02d:%02d", l / 3600, (l % 3600) / 60, (l % 60));
     }
 
 

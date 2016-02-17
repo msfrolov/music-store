@@ -3,7 +3,7 @@ package com.epam.msfrolov.musicstore.model;
 import org.joda.money.Money;
 
 public abstract class CommercialMultimediaEntity extends MultimediaEntity {
-    private Money price = Money.parse("KZT 0");
+    private Money price;
 
     public Money getPrice() {
         return price;
@@ -30,4 +30,5 @@ public abstract class CommercialMultimediaEntity extends MultimediaEntity {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
     }
+
 }

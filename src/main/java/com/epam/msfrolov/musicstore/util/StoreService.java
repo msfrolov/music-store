@@ -3,8 +3,6 @@ package com.epam.msfrolov.musicstore.util;
 import com.epam.msfrolov.musicstore.model.*;
 import org.joda.money.Money;
 
-import javax.jws.soap.SOAPBinding;
-
 public class StoreService {
     public static boolean buyTrack(Track track, User user) {
         if (!user.getAccount().canSpend(track.getPrice())) {

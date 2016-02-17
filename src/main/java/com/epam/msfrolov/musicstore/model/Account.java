@@ -2,11 +2,11 @@ package com.epam.msfrolov.musicstore.model;
 
 import org.joda.money.Money;
 
-public class Account extends BaseEntity{
+public class Account extends BaseEntity {
     private User owner;
     private Money value;
 
-    public Account(User user){
+    public Account(User user) {
         this.owner = user;
     }
 
@@ -40,7 +40,8 @@ public class Account extends BaseEntity{
 
         Account account = (Account) o;
 
-        return owner != null ? owner.equals(account.owner) : account.owner == null && (value != null ? value.equals(account.value) : account.value == null);
+        return owner != null ? owner.equals(account.owner) : account.owner == null
+                && (value != null ? value.equals(account.value) : account.value == null);
 
     }
 
