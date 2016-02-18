@@ -14,22 +14,27 @@ public class UserTest {
 
         User user = UserFactory.getRandomUser();
         Album album = new Album(ServiceRandom.getRandomStyle());
-        System.out.println("alb" + album);
+
         for (int i = 0; i < 17; i++) {
             Track track = TrackFactory.createTrack();
-            System.out.println("alb" + album);
-            System.out.println(track);
-            System.out.println("alb" + album);
-            System.out.println(album.add(track));
-            System.out.println("alb" + album);
+            album.add(track);
             StoreService.accrualMoneyInAccount(user, track.getPrice());
+            System.out.println(user);
         }
+
         for (Track track:album) {
             StoreService.buyTrack(track, user);
         }
-       /* System.out.println(user);
-        System.out.println(user.getBoughtTracks());*/
-        assertEquals(album.getList(), user.getBoughtTracks());
+        System.out.println("-------------------------------");
+        for (Track track:album) {
+            System.out.println(track);
+        }
+        System.out.println("-------------------------------");
+        for (Track track:user.getBoughtTracks()) {
+            System.out.println(track);
+        }
+
+        assertEquals(album.getList(), user.getBoughtTracks().getList());
 
 
     }

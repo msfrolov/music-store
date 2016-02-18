@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class ServiceRandom {
 
-    private static Random random = new SecureRandom();
+    public static Random random = new Random();
 
     public static String getRandomName() {
         return FileHandling.getRandomLine(FileHandling.TRACK_NAME);
@@ -43,4 +43,8 @@ public class ServiceRandom {
         return Duration.ofSeconds((long) (random.nextInt(300) + 61));
     }
 
+    public static Integer getRandomId() {
+        // Get file size from 1 to 9 megabyte - result in bytes;
+        return random.nextInt(99999);
+    }
 }

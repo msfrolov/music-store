@@ -34,10 +34,9 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public boolean add(Track file) {
-        if (owner != User.ADMIN)
-            if (!(owner.getBoughtTracks().indexOf(file)<0))
-                return false;
-        if (!this.value.contains(file)) {
+        if ((owner != User.ADMIN)
+                && (owner.getBoughtTracks().contains(file))
+                && (!this.value.contains(file)) || this.getId().equals(owner.getBoughtTracks().getId())) {
             value.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
             return true;
@@ -45,9 +44,22 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
         return false;
     }
 
+    public boolean addBuy(Track file) {
+        if ((owner != User.ADMIN)
+                && (owner.getBoughtTracks().contains(file))
+                && (!this.value.contains(file))) {
+            System.out.println("ADD  " + file);
+            value.add(file);
+            this.setDuration(this.getDuration().plus(file.getDuration()));
+            return true;
+        }
+        return false;
+    }
+
+
     @Override
     public boolean remove(Track file) {
-        if (this.value.indexOf(file)<0) {
+        if (this.value.indexOf(file) < 0) {
             value.remove(file);
             this.setDuration(this.getDuration().minus(file.getDuration()));
             return true;
@@ -97,7 +109,6 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
     @Override
     public String toString() {
         return "PLAYLIST {" +
-                " owner: " + owner +
                 " name: " + this.getName() +
                 " number of tracks: " + this.value.size() +
                 " duration: " + Track.durationFormat(getDuration()) +
@@ -114,6 +125,11 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
         }
         stringBuilder.append('}');
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean contains(Track track) {
+        return value.contains(track);
     }
 }
 

@@ -29,7 +29,7 @@ public class Account extends BaseEntity {
     @Override
     public String toString() {
         return "Account{" +
-                "owner=" + owner +
+                "owner=" + owner.getName() +
                 ", value=" + value +
                 '}';
     }

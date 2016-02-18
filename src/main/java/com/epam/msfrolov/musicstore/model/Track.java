@@ -57,7 +57,9 @@ public class Track extends CommercialMultimediaEntity {
 
     @Override
     public String toString() {
-        return "{ name: " + getName() +
+        return "{ " +
+                "id: " + getId() +
+                " name: " + getName() +
                 " style: " + getStyle() +
                 " duration: " + Track.durationFormat(getDuration()) +
                 " price: " + getPrice() +

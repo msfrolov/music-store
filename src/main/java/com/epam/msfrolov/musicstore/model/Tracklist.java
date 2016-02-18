@@ -11,4 +11,6 @@ public interface Tracklist {
     void sort(Comparator<Track> comparator);
 
     List<Track> getList();
+
+    boolean contains(Track track);
 }

@@ -7,10 +7,10 @@ import java.util.*;
 
 public class Album extends CommercialMultimediaEntity implements Tracklist, Iterable<Track> {
 
-    private List<Track> tracklist;
+    private List<Track> value;
 
     private Album() {
-        this.tracklist = new ArrayList<>();
+        this.value = new ArrayList<>();
     }
 
     public Album(String name) {
@@ -22,7 +22,7 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
 
     @Override
     public Iterator<Track> iterator() {
-        return tracklist.iterator();
+        return value.iterator();
     }
 
     @Override
@@ -37,35 +37,22 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
 
     @Override
     public boolean add(Track file) {
-        if (file == null)
-            return false;
-        if (!(this.tracklist.indexOf(file)<0)) {
-            tracklist.add(file);
+        if (file != null && !(this.contains(file))) {
+            value.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
-            if (this.getPrice() == null) {
-                this.setPrice(file.getPrice());
-                System.out.println("!!!!!2");
-                return false;
-            } else
-                this.setPrice(this.getPrice().plus(file.getPrice()));
+            this.setPrice(this.getPrice().plus(file.getPrice()));
             return true;
         }
-        System.out.println("!!!!!1");
         return false;
 
     }
 
     @Override
     public boolean remove(Track file) {
-        if (file == null)
-            return false;
-        if (this.tracklist.indexOf(file)<0) {
-            tracklist.remove(file);
+        if (file != null && this.contains(file)) {
+            value.remove(file);
             this.setDuration(this.getDuration().minus(file.getDuration()));
-            if (this.getPrice() == null)
-                return false;
-            else
-                this.setPrice(this.getPrice().minus(file.getPrice()));
+            this.setPrice(this.getPrice().minus(file.getPrice()));
             return true;
         }
         return false;
@@ -73,14 +60,14 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
 
     @Override
     public void sort(Comparator<Track> comparator) {
-        Collections.sort(this.tracklist, comparator);
+        Collections.sort(this.value, comparator);
     }
 
     @Override
     public String toString() {
         return "{ COLLECTION " +
                 " name: " + getName() +
-                " number of tracks: =" + tracklist.size() +
+                " number of tracks: =" + value.size() +
                 " duration: " + Track.durationFormat(getDuration()) +
                 " price: " + getPrice() +
                 '}';
@@ -88,7 +75,12 @@ public class Album extends CommercialMultimediaEntity implements Tracklist, Iter
 
     @Override
     public List<Track> getList() {
-        return Collections.unmodifiableList(tracklist);
+        return Collections.unmodifiableList(value);
+    }
+
+    @Override
+    public boolean contains(Track track) {
+        return value.contains(track);
     }
 
 }

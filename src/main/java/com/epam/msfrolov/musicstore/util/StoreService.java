@@ -19,7 +19,9 @@ public class StoreService {
             return false;
         }
         Payment payment = Payment.conduct(user, User.ADMIN, album.getPrice(), DetailsOfPayment.PAY_PER_TRACK);
-        user.getBoughtTracks().addAll(album.getList());
+        for (Track track:album) {
+            user.getBoughtTracks().add(track);
+        }
         System.out.println(payment);
         return payment.isDone();
     }

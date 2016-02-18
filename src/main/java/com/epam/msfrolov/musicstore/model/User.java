@@ -6,7 +6,7 @@ import java.util.List;
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
     private Account account;
-    private List<Track> boughtTracks = new ArrayList<>();
+    private Playlist boughtTracks = new Playlist(this);
     private List<Playlist> playlists = new ArrayList<>();
 
     public User(String name) {
@@ -14,7 +14,7 @@ public class User extends NamedEntity {
         this.account = new Account(this);
     }
 
-    public List<Track> getBoughtTracks() {
+    public Playlist getBoughtTracks() {
         return boughtTracks;
     }
 
@@ -35,5 +35,11 @@ public class User extends NamedEntity {
 
     protected void setAccount(Account account) {
         this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
+
     }
 }
