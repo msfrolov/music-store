@@ -15,7 +15,7 @@ public class Interactive {
     public static Random random = ServiceRandom.random;
     static int numberOfTracks = 100;
     static int numberOfAlbum = 12;
-    static int numberOfTracksForList = 100;
+    static int numberOfTracksForList = 20;
 
     static List<Track> trackArrayList = new ArrayList<>();
     static List<Album> albumArrayList = new ArrayList<>();
@@ -37,7 +37,7 @@ public class Interactive {
         System.out.println("---------------------Albums--------------------------");
 
         for (int i = 0; i < numberOfAlbum; i++) {
-            Album newAlbum = AlbumFactory.createRandomAlbum(trackArrayList);
+            Album newAlbum = AlbumFactory.createRandomAlbum(trackArrayList, numberOfTracksForList);
             albumArrayList.add(newAlbum);
             System.out.println(newAlbum);
         }

@@ -3,9 +3,6 @@ package com.epam.msfrolov.musicstore.util;
 import com.epam.msfrolov.musicstore.model.Track;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 public class Runner {
     public static void main(String[] args) {

@@ -14,14 +14,12 @@ public class FileHandling {
     private static List<String> lines;
     private static String fileName;
 
-    private static Random rnd = new SecureRandom();
-
     public static String getRandomLine(String fn) throws IllegalArgumentException {
         if (fn == null) throw new IllegalArgumentException();
         fileName = fn;
         readFileToList();
-        return lines.get(rnd.nextInt(lines.size()));
-    }
+        return lines.get(ServiceRandom.random.nextInt(lines.size()));
+}
 
     private static void readFileToList() {
         lines = new ArrayList<>();
