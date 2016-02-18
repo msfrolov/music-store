@@ -36,7 +36,8 @@ public class Payment extends BaseEntity {
     @Override
     public String toString() {
         return "Payment{" +
-                "sender=" + sender +
+                "id " + getId() +
+                ", sender=" + sender +
                 ", recipient=" + recipient +
                 ", sum=" + sum +
                 ", done=" + done +

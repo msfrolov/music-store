@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.factory;
+package com.epam.msfrolov.musicstore.factory1;
 
 import com.epam.msfrolov.musicstore.model.Metadata;
 import com.epam.msfrolov.musicstore.model.Style;
@@ -17,6 +17,8 @@ public class TrackFactory {
         Duration duration = ServiceRandom.getRandomDuration();
         Money price = ServiceRandom.getRandomPrise();
         Style style = new Style(ServiceRandom.getRandomStyle());
-        return new Track(name, style, duration, price, details);
+        Track track = new Track(name, style, duration, price, details);
+        track.setId(ServiceRandom.getRandomId());
+        return track;
     }
 }
