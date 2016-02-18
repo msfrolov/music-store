@@ -1,7 +1,7 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.factory1.TrackFactory;
-import com.epam.msfrolov.musicstore.factory1.UserFactory;
+import com.epam.msfrolov.musicstore.factory.TrackFactory;
+import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.util.ServiceRandom;
 import com.epam.msfrolov.musicstore.util.StoreService;
 

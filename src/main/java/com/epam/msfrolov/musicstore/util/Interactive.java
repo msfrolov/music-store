@@ -1,8 +1,8 @@
 package com.epam.msfrolov.musicstore.util;
 
-import com.epam.msfrolov.musicstore.factory1.AlbumFactory;
-import com.epam.msfrolov.musicstore.factory1.TrackFactory;
-import com.epam.msfrolov.musicstore.factory1.UserFactory;
+import com.epam.msfrolov.musicstore.factory.AlbumFactory;
+import com.epam.msfrolov.musicstore.factory.TrackFactory;
+import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.model.*;
 import org.joda.money.Money;
 

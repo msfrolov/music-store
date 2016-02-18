@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.factory1;
+package com.epam.msfrolov.musicstore.factory;
 
 import com.epam.msfrolov.musicstore.model.Album;
 import com.epam.msfrolov.musicstore.model.Track;
