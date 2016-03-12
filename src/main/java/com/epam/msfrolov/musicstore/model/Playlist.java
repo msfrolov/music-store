@@ -1,11 +1,18 @@
 package com.epam.msfrolov.musicstore.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
 import java.time.Duration;
 import java.util.*;
 
 public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Track> {
 
     private final User owner;
+    @XmlElementWrapper(name = "Playlist")
+    @XmlElements({
+           @XmlElement(name ="track")
+    })
     private List<Track> value = new ArrayList<>();
 
     public Playlist() {
@@ -104,6 +111,10 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
     @Override
     public List<Track> getList() {
         return Collections.unmodifiableList(value);
+    }
+
+    public int size() {
+        return value.size();
     }
 
     @Override

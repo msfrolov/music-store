@@ -1,13 +1,20 @@
 package com.epam.msfrolov.musicstore.model;
 
+import com.epam.msfrolov.musicstore.xml.jaxb.StyleXmlAdapter;
 import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.Duration;
 import java.util.Comparator;
-
+@XmlAccessorType(XmlAccessType.NONE)
 public class Track extends CommercialMultimediaEntity {
-
+    @XmlJavaTypeAdapter(StyleXmlAdapter.class)
+    @XmlElement
     private Style style;
 
     public static final Comparator<Track> COMPARE_DURATION = (o1, o2) -> o1.getDuration().compareTo(o2.getDuration());
@@ -17,7 +24,7 @@ public class Track extends CommercialMultimediaEntity {
 
     private Metadata details;
 
-    private Track() {
+    public Track() {
     }
 
     public Track(String name, Style style, Duration duration, Money price, Metadata details) {
@@ -38,12 +45,12 @@ public class Track extends CommercialMultimediaEntity {
     }
 
     @Override
-    protected void setPrice(Money price) {
+    public void setPrice(Money price) {
         super.setPrice(price);
     }
 
     @Override
-    protected void setDuration(Duration duration) {
+    public void setDuration(Duration duration) {
         super.setDuration(duration);
     }
 

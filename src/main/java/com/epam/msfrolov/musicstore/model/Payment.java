@@ -24,9 +24,7 @@ public class Payment extends BaseEntity {
     }
 
     public static Payment conduct(User sender, User recipient, Money sum, DetailsOfPayment details) {
-        Payment payment = new Payment(sender, recipient, sum, details);
-        System.out.println(payment);
-        return payment;
+        return new Payment(sender, recipient, sum, details);
     }
 
     public boolean isDone() {
