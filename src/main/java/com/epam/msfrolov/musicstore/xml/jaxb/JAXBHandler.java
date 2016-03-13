@@ -1,8 +1,5 @@
 package com.epam.msfrolov.musicstore.xml.jaxb;
 
-import com.epam.msfrolov.musicstore.model.User;
-import com.epam.msfrolov.musicstore.xml.Builder;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -13,38 +10,37 @@ import java.io.FileReader;
 
 import static javax.xml.bind.JAXBContext.newInstance;
 
-public class JAXBHandler{
+public class JAXBHandler<T> {
     private JAXBContext jc;
-    private User currentUser;
 
-    public JAXBHandler() {
+    public JAXBHandler(Class<T> clazz) {
         try {
-            jc = newInstance(User.class);
+            jc = newInstance(clazz);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
     }
 
-    public void marshal(User user, String filePath){
+    public void marshal(T object, String filePath) {
         try {
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(user, new File(filePath));
+            marshaller.marshal(object, new File(filePath));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
     }
 
-    public User unmarshal(String filePath){
-        User user = null;
+    public T unmarshal(String filePath) {
+        T object = null;
         try {
             Unmarshaller unmarshaller = jc.createUnmarshaller();
             FileReader reader = new FileReader(filePath);
-            user = (User) unmarshaller.unmarshal(reader);
+            object = (T) unmarshaller.unmarshal(reader);
         } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
         }
-        return user;
+        return object;
     }
 
 

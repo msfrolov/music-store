@@ -1,20 +1,23 @@
 package com.epam.msfrolov.musicstore.xml.jaxb;
 
-import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.xml.Builder;
-import com.epam.msfrolov.musicstore.xml.jaxb.JAXBHandler;
 
-public class JAXBBuilder implements Builder{
-    private User currentUser;
+public class JAXBBuilder<T> implements Builder<T> {
+    private T currentUser;
+    private Class clazz;
+
+    public JAXBBuilder(Class<T> clazz) {
+        this.clazz = clazz;
+    }
 
     @Override
-    public User getInstance() {
+    public T getInstance() {
         return currentUser;
     }
 
     @Override
     public void buildSet(String fileName) {
-        JAXBHandler jaxbHandler = new JAXBHandler();
+        JAXBHandler<T> jaxbHandler = new JAXBHandler<>(clazz);
         currentUser = jaxbHandler.unmarshal(fileName);
     }
 }

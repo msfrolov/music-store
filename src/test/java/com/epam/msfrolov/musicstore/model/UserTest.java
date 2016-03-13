@@ -5,7 +5,7 @@ import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.util.ServiceRandom;
 import com.epam.msfrolov.musicstore.util.StoreService;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UserTest {
 
@@ -19,23 +19,13 @@ public class UserTest {
             Track track = TrackFactory.createTrack();
             album.add(track);
             StoreService.accrualMoneyInAccount(user, track.getPrice());
-            System.out.println(user);
         }
 
-        for (Track track:album) {
+        for (Track track : album) {
             StoreService.buyTrack(track, user);
-        }
-        System.out.println("-------------------------------");
-        for (Track track:album) {
-            System.out.println(track);
-        }
-        System.out.println("-------------------------------");
-        for (Track track:user.getBoughtTracks()) {
-            System.out.println(track);
         }
 
         assertEquals(album.getList(), user.getBoughtTracks().getList());
-
 
     }
 }

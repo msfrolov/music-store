@@ -6,22 +6,26 @@ import com.epam.msfrolov.musicstore.xml.sax.SAXBuilder;
 import static com.epam.msfrolov.musicstore.xml.BuilderFactory.BuilderType.*;
 
 public class BuilderFactory {
-    public Builder create(String builderType) {
-        return this.create(valueOf(builderType.toUpperCase()));
-    }
 
-    public Builder create(BuilderType builderType) {
-        if (builderType == JAXB)
-            return new JAXBBuilder();
-        else if (builderType == SAX)
-            return new SAXBuilder();
-//        else if (builderType == STAX)
+    public <T> Builder create(String builderType, Class<T> clazz) {
+        Builder<T> builder;
+        BuilderType type = valueOf(builderType.toUpperCase());
+
+        if (type == JAXB) {
+            builder = new JAXBBuilder<>(clazz);
+            return builder;
+        } else if (type == SAX) {
+            builder = new SAXBuilder<>(clazz);
+        }
+//        else if (type == STAX)
 //            return new StAXBuilder();
-//        else if (builderType == DOM)
+//        else if (type == DOM)
 //            return new DOMBuilder();
         else
-            throw new EnumConstantNotPresentException(builderType.getDeclaringClass(), builderType.name());
+            throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
+        return builder;
     }
+
 
     public enum BuilderType {
         JAXB, SAX, STAX, DOM

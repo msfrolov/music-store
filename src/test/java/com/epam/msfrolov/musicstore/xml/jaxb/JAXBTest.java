@@ -10,8 +10,11 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.Assert.assertEquals;
+
 public class JAXBTest {
     private static final Logger log = LoggerFactory.getLogger(JAXBTest.class);
+
     @Test
     public void jaxbTest() throws Exception {
         //GIVEN
@@ -21,14 +24,16 @@ public class JAXBTest {
             Track track = TrackFactory.createTrack();
             StoreService.buyTrack(track, user);
         }
-        log.debug("User before serialize {}","\n" + user.toStringWithDetails());
+        log.debug("User before serialize {}", "\n" + user.toStringWithDetails());
 
         //WHAN
-        JAXBHandler JAXBHandler = new JAXBHandler();
-        String filePath = "test.xml";
-        JAXBHandler.marshal(user,filePath);
-        User user1 = JAXBHandler.unmarshal(filePath);
-        log.debug("User after serialize {}","\n" + user1.toStringWithDetails());
+        JAXBHandler<User> jaxbHandler = new JAXBHandler<>(User.class);
+        String fileName = "src/test/resources/testJAXB.xml";
+        jaxbHandler.marshal(user, fileName);
+        User user1 = jaxbHandler.unmarshal(fileName);
+        log.debug("User after serialize {}", "\n" + user1.toStringWithDetails());
 
+        //THAN
+        assertEquals(user, user1);
     }
 }

@@ -1,42 +1,52 @@
 package com.epam.msfrolov.musicstore.xml.sax;
 
-import com.epam.msfrolov.musicstore.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class SAXHandler extends DefaultHandler {
+public class SAXHandler<T> extends DefaultHandler {
 
-    private User result;
+    private static final Logger log = LoggerFactory.getLogger(SAXHandler.class);
 
-    public User getResult() {
+    private T result;
+
+    public SAXHandler(Class<T> clazz) {
+        try {
+            result = clazz.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public T getResult() {
         return result;
     }
 
     @Override
     public void startDocument() throws SAXException {
-        super.startDocument();
+        log.info("startdocument {}", result.getClass());
+        log.info("startdocument");
     }
-
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        super.startElement(uri, localName, qName, attributes);
+        log.info("  < {}", localName);
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        super.characters(ch, start, length);
+        log.info("     = ch /{}/", new String(ch, start, length).trim());
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        super.endElement(uri, localName, qName);
+        log.info("  > {}", localName);
     }
-
 
     @Override
     public void endDocument() throws SAXException {
-        super.endDocument();
+        log.info("enddocument");
     }
 }

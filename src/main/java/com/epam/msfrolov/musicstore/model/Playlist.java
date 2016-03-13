@@ -1,17 +1,17 @@
 package com.epam.msfrolov.musicstore.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.*;
 import java.time.Duration;
 import java.util.*;
 
+@XmlAccessorType(XmlAccessType.NONE)
 public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Track> {
 
     private final User owner;
-    @XmlElementWrapper(name = "Playlist")
+
+    @XmlElementWrapper(name = "value")
     @XmlElements({
-           @XmlElement(name ="track")
+            @XmlElement(name = "Track")
     })
     private List<Track> value = new ArrayList<>();
 

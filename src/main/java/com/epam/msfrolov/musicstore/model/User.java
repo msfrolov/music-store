@@ -1,23 +1,19 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.jaxb.AccountXmlAdapter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.epam.msfrolov.musicstore.model.Track.durationFormat;
 
-@XmlRootElement(name = "User")
+@XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.NONE)
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
 
-    @XmlJavaTypeAdapter(AccountXmlAdapter.class)
     @XmlElement(name = "account")
     private Account account;
 
@@ -79,4 +75,6 @@ public class User extends NamedEntity {
                 "   Number playlists " + playlists.size() +
                 '}';
     }
+
+
 }

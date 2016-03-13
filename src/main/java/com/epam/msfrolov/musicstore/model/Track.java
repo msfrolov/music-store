@@ -70,7 +70,7 @@ public class Track extends CommercialMultimediaEntity {
                 " style: " + getStyle() +
                 " duration: " + Track.durationFormat(getDuration()) +
                 " price: " + getPrice() +
-                " size: " + FileUtils.byteCountToDisplaySize(getDetails().SIZE_BYTE) +
+                " size: " + (getDetails() == null ? "-/-" : FileUtils.byteCountToDisplaySize(getDetails().SIZE_BYTE)) +
                 " }";
     }
 
@@ -81,5 +81,22 @@ public class Track extends CommercialMultimediaEntity {
         return String.format("%d:%02d:%02d", l / 3600, (l % 3600) / 60, (l % 60));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
+        Track track = (Track) o;
+
+        return style != null ? style.equals(track.style) : track.style == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (style != null ? style.hashCode() : 0);
+        return result;
+    }
 }

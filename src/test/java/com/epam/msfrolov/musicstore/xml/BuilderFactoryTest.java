@@ -17,13 +17,12 @@ public class BuilderFactoryTest {
 
     private void testBuilder(String typeBuilder) {
         BuilderFactory builderFactory = new BuilderFactory();
-        Builder builder = builderFactory.create(typeBuilder);
+        Builder builder = builderFactory.create(typeBuilder, User.class);
         builder.buildSet("src/test/resources/test.xml");
 
         Object instance = builder.getInstance();
         User user = (User) instance;
 
-
-        log.debug("It's alive! {}", user.toStringWithDetails());
+        log.debug("Oh, it's alive! {}", user.toStringWithDetails());
     }
 }
