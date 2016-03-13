@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user>
+    <id>99036</id>
+    <name> The Beatles</name>
+    <account>
+        <value>KZT 143866.00</value>
+    </account>
+    <boughtTracks>
+        <duration>4476</duration>
+        <value>
+            <Track>
+                <id>97499</id>
+                <name> The Hollies - Sorry Suzanne</name>
+                <duration>148</duration>
+                <price>KZT 456.00</price>
+                <style>Минимал</style>
+            </Track>
+            <Track>
+                <id>95392</id>
+                <name> Metallica - Nothing Else Matters</name>
+                <duration>358</duration>
+                <price>KZT 384.00</price>
+                <style>Арт-рок (Прогрессивный рок)</style>
+            </Track>
+            <Track>
+                <id>97131</id>
+                <name> The Animals - The House of the Rising Sun</name>
+                <duration>252</duration>
+                <price>KZT 243.00</price>
+                <style>Психоделический рок</style>
+            </Track>
+            <Track>
+                <id>10710</id>
+                <name> Santana - Black Magic Woman</name>
+                <duration>207</duration>
+                <price>KZT 258.00</price>
+                <style>Поп-рок</style>
+            </Track>
+            <Track>
+                <id>89513</id>
+                <name> Europe - The Final Countdown</name>
+                <duration>226</duration>
+                <price>KZT 542.00</price>
+                <style>Прогрессив-метал</style>
+            </Track>
+            <Track>
+                <id>6023</id>
+                <name> Carpenters - For All We Know</name>
+                <duration>201</duration>
+                <price>KZT 448.00</price>
+                <style>Панк рок</style>
+            </Track>
+            <Track>
+                <id>73986</id>
+                <name> Manfred Mann's Earth Band - Spirit In The Night</name>
+                <duration>134</duration>
+                <price>KZT 62.00</price>
+                <style>Инди-поп</style>
+            </Track>
+            <Track>
+                <id>99937</id>
+                <name> The Beatles - Let It Be</name>
+                <duration>83</duration>
+                <price>KZT 416.00</price>
+                <style>Симфонический блэк-метал</style>
+            </Track>
+            <Track>
+                <id>66565</id>
+                <name> Pink Floyd - Wish You Were Here</name>
+                <duration>139</duration>
+                <price>KZT 330.00</price>
+                <style>Кантри-рок</style>
+            </Track>
+            <Track>
+                <id>44478</id>
+                <name> Майкл Джексон - Billie Jean</name>
+                <duration>96</duration>
+                <price>KZT 159.00</price>
+                <style>Спид-метал</style>
+            </Track>
+            <Track>
+                <id>37984</id>
+                <name> Chicago - If You Leave Me Now</name>
+                <duration>136</duration>
+                <price>KZT 133.00</price>
+                <style>Поп-рок</style>
+            </Track>
+            <Track>
+                <id>27107</id>
+                <name> Pink Floyd - Money</name>
+                <duration>236</duration>
+                <price>KZT 94.00</price>
+                <style>Краст-панк</style>
+            </Track>
+            <Track>
+                <id>10834</id>
+                <name> The Beatles - Help!</name>
+                <duration>323</duration>
+                <price>KZT 457.00</price>
+                <style>Нойз-поп</style>
+            </Track>
+            <Track>
+                <id>35983</id>
+                <name> Queen - We Are the Champions</name>
+                <duration>197</duration>
+                <price>KZT 152.00</price>
+                <style>Твист</style>
+            </Track>
+            <Track>
+                <id>96027</id>
+                <name> Deep Purple - Smoke on the Water</name>
+                <duration>294</duration>
+                <price>KZT 278.00</price>
+                <style>Альтернативный рок (Инди-рок / Колледж-рок)</style>
+            </Track>
+            <Track>
+                <id>34873</id>
+                <name> The Beatles - Help!</name>
+                <duration>220</duration>
+                <price>KZT 142.00</price>
+                <style>Викинг-метал</style>
+            </Track>
+            <Track>
+                <id>32466</id>
+                <name> The Doors - Light My Fire</name>
+                <duration>352</duration>
+                <price>KZT 542.00</price>
+                <style>Дум-метал</style>
+            </Track>
+            <Track>
+                <id>99434</id>
+                <name> Bee Gees - Stayin' Alive</name>
+                <duration>217</duration>
+                <price>KZT 511.00</price>
+                <style>Нойз-рок</style>
+            </Track>
+            <Track>
+                <id>64746</id>
+                <name> The Beatles - Strawberry Fields Forever</name>
+                <duration>347</duration>
+                <price>KZT 71.00</price>
+                <style>Рок-н-ролл</style>
+            </Track>
+            <Track>
+                <id>95612</id>
+                <name> The Zombies - She's Not There</name>
+                <duration>310</duration>
+                <price>KZT 456.00</price>
+                <style>Эмо</style>
+            </Track>
+        </value>
+    </boughtTracks>
+</user>
