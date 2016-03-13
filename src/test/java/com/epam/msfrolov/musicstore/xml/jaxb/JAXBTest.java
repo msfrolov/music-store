@@ -24,10 +24,10 @@ public class JAXBTest {
         log.debug("User before serialize {}","\n" + user.toStringWithDetails());
 
         //WHAN
-        JaxbHandler jaxbHandler = new JaxbHandler();
+        JAXBHandler JAXBHandler = new JAXBHandler();
         String filePath = "test.xml";
-        jaxbHandler.marshal(user,filePath);
-        User user1 = jaxbHandler.unmarshal(filePath);
+        JAXBHandler.marshal(user,filePath);
+        User user1 = JAXBHandler.unmarshal(filePath);
         log.debug("User after serialize {}","\n" + user1.toStringWithDetails());
 
     }

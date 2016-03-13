@@ -1,6 +1,7 @@
 package com.epam.msfrolov.musicstore.xml.jaxb;
 
 import com.epam.msfrolov.musicstore.model.User;
+import com.epam.msfrolov.musicstore.xml.Builder;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -12,9 +13,11 @@ import java.io.FileReader;
 
 import static javax.xml.bind.JAXBContext.newInstance;
 
-public class JaxbHandler {
+public class JAXBHandler{
     private JAXBContext jc;
-    public JaxbHandler() {
+    private User currentUser;
+
+    public JAXBHandler() {
         try {
             jc = newInstance(User.class);
         } catch (JAXBException e) {
@@ -35,12 +38,14 @@ public class JaxbHandler {
     public User unmarshal(String filePath){
         User user = null;
         try {
-            Unmarshaller u = jc.createUnmarshaller();
+            Unmarshaller unmarshaller = jc.createUnmarshaller();
             FileReader reader = new FileReader(filePath);
-            user = (User) u.unmarshal(reader);
+            user = (User) unmarshaller.unmarshal(reader);
         } catch (JAXBException | FileNotFoundException e) {
             e.printStackTrace();
         }
         return user;
     }
+
+
 }
