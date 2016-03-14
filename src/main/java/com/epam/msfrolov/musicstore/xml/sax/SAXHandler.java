@@ -66,7 +66,6 @@ public class SAXHandler<T> extends DefaultHandler {
                 currentList.add(field);
 
             } else {
-
             }
         }
     }
