@@ -4,7 +4,7 @@ import com.epam.msfrolov.musicstore.model.Style;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-public class StyleXmlAdapter extends XmlAdapter<String,Style> {
+public class StyleXmlAdapter extends XmlAdapter<String, Style> {
 
     @Override
     public Style unmarshal(String s) throws Exception {

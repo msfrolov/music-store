@@ -2,20 +2,20 @@ package com.epam.msfrolov.musicstore.xml;
 
 import com.epam.msfrolov.musicstore.model.BaseEntity;
 import com.epam.msfrolov.musicstore.model.Track;
-import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.xml.util.HandlerClasses;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class HandlerClassesTest {
 
     @Test
     public void testCheckPresenceField() throws Exception {
-        assertTrue(HandlerClasses.checkPresenceField("duration" ,Track.class));
+        assertTrue(HandlerClasses.checkPresenceField("duration", Track.class));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class HandlerClassesTest {
     public void testGetAllSuperClasses() throws Exception {
         List<Class> allSuperClasses = HandlerClasses.getAllSuperClasses(Track.class);
         //Last class in list should be equals BaseEntity
-        Class clazz = allSuperClasses.get(allSuperClasses.size()-1);
+        Class clazz = allSuperClasses.get(allSuperClasses.size() - 1);
         assertEquals(BaseEntity.class, clazz);
 
     }

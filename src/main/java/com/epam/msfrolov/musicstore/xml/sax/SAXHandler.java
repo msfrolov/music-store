@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.epam.msfrolov.musicstore.xml.util.HandlerClasses.checkPresenceField;
-import static com.epam.msfrolov.musicstore.xml.util.HandlerClasses.getAllField;
 
 public class SAXHandler<T> extends DefaultHandler {
 
