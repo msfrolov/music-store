@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.jaxb.MoneyXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.util.MoneyXmlAdapter;
 import org.joda.money.Money;
 
 import javax.xml.bind.annotation.XmlAccessType;

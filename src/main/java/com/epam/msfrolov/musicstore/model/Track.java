@@ -1,13 +1,12 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.jaxb.StyleXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.util.StyleXmlAdapter;
 import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.Duration;
 import java.util.Comparator;

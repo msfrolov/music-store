@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<user>
-    <id>31659</id>
-    <name> Scorpions</name>
+<User>
+    <id>81345</id>
+    <name> Pink Floyd</name>
     <account>
-        <value>KZT 143903.00</value>
+        <value>KZT 143945.00</value>
     </account>
     <boughtTracks>
-        <duration>5015</duration>
+        <duration>4235</duration>
         <value>
             <Track>
-                <id>9492</id>
-                <name> Queen - We Are the Champions</name>
-                <duration>73</duration>
-                <price>KZT 165.00</price>
-                <style>Поп-рок</style>
+                <id>80729</id>
+                <name> The Beatles - Come Together</name>
+                <duration>100</duration>
+                <price>KZT 148.00</price>
+                <style>Готик-рок</style>
             </Track>
             <Track>
-                <id>10973</id>
-                <name> Элвис Пресли - Love Me Tender</name>
-                <duration>360</duration>
-                <price>KZT 315.00</price>
-                <style>Альтернативный метал</style>
+                <id>66591</id>
+                <name> Eagles - Hotel California</name>
+                <duration>74</duration>
+                <price>KZT 548.00</price>
+                <style>Викинг-метал</style>
             </Track>
             <Track>
-                <id>47427</id>
-                <name> The Doors - People Are Strange</name>
-                <duration>209</duration>
-                <price>KZT 356.00</price>
-                <style>Oi!</style>
+                <id>41748</id>
+                <name> Status Quo - In the Army Now</name>
+                <duration>212</duration>
+                <price>KZT 78.00</price>
+                <style>Психоделический рок</style>
             </Track>
             <Track>
-                <id>79283</id>
-                <name> Scorpions - White Dove</name>
-                <duration>326</duration>
-                <price>KZT 332.00</price>
-                <style>Русский рок</style>
+                <id>50226</id>
+                <name> The Rolling Stones - (I Can't Get No) Satisfaction</name>
+                <duration>357</duration>
+                <price>KZT 252.00</price>
+                <style>8 бит</style>
             </Track>
             <Track>
-                <id>45810</id>
-                <name> The Beatles - Get Back</name>
-                <duration>185</duration>
-                <price>KZT 322.00</price>
+                <id>78635</id>
+                <name> Scorpions - Wind of change</name>
+                <duration>318</duration>
+                <price>KZT 483.00</price>
                 <style>Глэм-рок</style>
             </Track>
             <Track>
-                <id>62380</id>
-                <name> Carpenters - (They Long to Be) Close to You</name>
-                <duration>97</duration>
-                <price>KZT 417.00</price>
-                <style>Биг-Бит</style>
+                <id>95484</id>
+                <name> Дэвид Боуи - Ziggy Stardust</name>
+                <duration>301</duration>
+                <price>KZT 411.00</price>
+                <style>Электро-хаус</style>
             </Track>
             <Track>
-                <id>25854</id>
-                <name> The Hollies - Sorry Suzanne</name>
-                <duration>347</duration>
-                <price>KZT 175.00</price>
-                <style>Поп-панк</style>
+                <id>96805</id>
+                <name> Status Quo - In the Army Now</name>
+                <duration>350</duration>
+                <price>KZT 358.00</price>
+                <style>Симфонический блэк-метал</style>
             </Track>
             <Track>
-                <id>51899</id>
-                <name> Manfred Mann's Earth Band - Spirit In The Night</name>
-                <duration>218</duration>
-                <price>KZT 415.00</price>
-                <style>Тви-поп</style>
-            </Track>
-            <Track>
-                <id>7147</id>
-                <name> The Beatles - Lady Madonna</name>
-                <duration>209</duration>
-                <price>KZT 315.00</price>
-                <style>Электро</style>
-            </Track>
-            <Track>
-                <id>455</id>
-                <name> Procol Harum - A Whiter Shade Of Pale</name>
-                <duration>326</duration>
-                <price>KZT 390.00</price>
-                <style>Дум-метал</style>
-            </Track>
-            <Track>
-                <id>54361</id>
-                <name> The Doors - Riders on the Storm</name>
-                <duration>155</duration>
-                <price>KZT 121.00</price>
-                <style>Тви-поп</style>
-            </Track>
-            <Track>
-                <id>12223</id>
-                <name> Scorpions - Wind of change</name>
-                <duration>307</duration>
-                <price>KZT 287.00</price>
-                <style>Кроссовер</style>
-            </Track>
-            <Track>
-                <id>80055</id>
-                <name> The Beatles - A Hard Day's Night</name>
-                <duration>337</duration>
-                <price>KZT 137.00</price>
-                <style>Oi!</style>
-            </Track>
-            <Track>
-                <id>26046</id>
-                <name> The Beatles - Penny Lane</name>
-                <duration>222</duration>
-                <price>KZT 320.00</price>
-                <style>Панк рок</style>
-            </Track>
-            <Track>
-                <id>92420</id>
-                <name> The Beatles - Lady Madonna</name>
-                <duration>275</duration>
-                <price>KZT 425.00</price>
-                <style>Мелодический блэк-метал</style>
-            </Track>
-            <Track>
-                <id>32779</id>
-                <name> The Rolling Stones - Paint It, Black</name>
-                <duration>313</duration>
-                <price>KZT 136.00</price>
+                <id>67014</id>
+                <name> Элтон Джон - Goodbye Yellow Brick Road</name>
+                <duration>340</duration>
+                <price>KZT 534.00</price>
                 <style>Гаражный рок</style>
             </Track>
             <Track>
-                <id>32049</id>
-                <name> Queen - We Will Rock You</name>
-                <duration>277</duration>
-                <price>KZT 425.00</price>
-                <style>Мэдчестер</style>
+                <id>69454</id>
+                <name> Chicago - If You Leave Me Now</name>
+                <duration>212</duration>
+                <price>KZT 277.00</price>
+                <style>Дрон</style>
             </Track>
             <Track>
-                <id>86802</id>
-                <name> The Beach Boys - Good Vibrations</name>
-                <duration>189</duration>
-                <price>KZT 354.00</price>
+                <id>70388</id>
+                <name> Carpenters - For All We Know</name>
+                <duration>172</duration>
+                <price>KZT 82.00</price>
+                <style>Пауэр-метал</style>
+            </Track>
+            <Track>
+                <id>5320</id>
+                <name> Nazareth - Love Hurts</name>
+                <duration>110</duration>
+                <price>KZT 428.00</price>
+                <style>Готик-рок</style>
+            </Track>
+            <Track>
+                <id>23875</id>
+                <name> Pink Floyd - Another Brick in the Wall</name>
+                <duration>129</duration>
+                <price>KZT 142.00</price>
+                <style>Нойз-поп</style>
+            </Track>
+            <Track>
+                <id>6420</id>
+                <name> Cream - Sunshine Of Your Love</name>
+                <duration>240</duration>
+                <price>KZT 109.00</price>
+                <style>Стоунер-рок</style>
+            </Track>
+            <Track>
+                <id>6134</id>
+                <name> Cream - Sunshine Of Your Love</name>
+                <duration>324</duration>
+                <price>KZT 100.00</price>
+                <style>Тви-поп</style>
+            </Track>
+            <Track>
+                <id>99752</id>
+                <name> Bread - Guitar Man</name>
+                <duration>84</duration>
+                <price>KZT 549.00</price>
+                <style>Дум-метал</style>
+            </Track>
+            <Track>
+                <id>61641</id>
+                <name> The Rolling Stones - (I Can't Get No) Satisfaction</name>
+                <duration>211</duration>
+                <price>KZT 344.00</price>
                 <style>Брит-поп</style>
             </Track>
             <Track>
-                <id>87868</id>
-                <name> Scorpions - Wind of change</name>
-                <duration>247</duration>
-                <price>KZT 334.00</price>
-                <style>Эмбиент</style>
+                <id>83475</id>
+                <name> The Beatles - All You Need Is Love</name>
+                <duration>135</duration>
+                <price>KZT 135.00</price>
+                <style>Металкор</style>
             </Track>
             <Track>
-                <id>72076</id>
-                <name> King Crimson - 21St Century Schizoid Man</name>
-                <duration>343</duration>
-                <price>KZT 356.00</price>
-                <style>Мелодик-дэт-метал</style>
+                <id>80555</id>
+                <name> Pink Floyd - Shine on You Crazy Diamond</name>
+                <duration>79</duration>
+                <price>KZT 495.00</price>
+                <style>Мат-рок</style>
+            </Track>
+            <Track>
+                <id>62154</id>
+                <name> Electric Light Orchestra - Ticket To the Moon</name>
+                <duration>191</duration>
+                <price>KZT 386.00</price>
+                <style>Дэт-метал</style>
+            </Track>
+            <Track>
+                <id>52309</id>
+                <name> The Beatles - Help!</name>
+                <duration>296</duration>
+                <price>KZT 196.00</price>
+                <style>Хардкор</style>
             </Track>
         </value>
     </boughtTracks>
-</user>
+</User>

@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 
-public class TestReflect {
-    private static final Logger log = LoggerFactory.getLogger(TestReflect.class);
+public class TestReflectTEMPCLASS {
+    private static final Logger log = LoggerFactory.getLogger(TestReflectTEMPCLASS.class);
 
     @Test
     public void testReflect() throws Exception {

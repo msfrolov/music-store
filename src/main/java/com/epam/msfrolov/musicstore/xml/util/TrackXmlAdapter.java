@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.jaxb;
+package com.epam.msfrolov.musicstore.xml.util;
 
 import com.epam.msfrolov.musicstore.model.Style;
 import com.epam.msfrolov.musicstore.model.Track;

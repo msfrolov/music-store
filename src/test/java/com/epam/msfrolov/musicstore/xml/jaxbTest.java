@@ -1,10 +1,11 @@
-package com.epam.msfrolov.musicstore.xml.jaxb;
+package com.epam.msfrolov.musicstore.xml;
 
 import com.epam.msfrolov.musicstore.factory.TrackFactory;
 import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.util.StoreService;
+import com.epam.msfrolov.musicstore.xml.jaxb.JAXBHandler;
 import org.joda.money.Money;
 import org.junit.Test;
 import org.slf4j.Logger;

@@ -1,6 +1,7 @@
 package com.epam.msfrolov.musicstore.xml;
 
 import com.epam.msfrolov.musicstore.xml.jaxb.JAXBBuilder;
+import com.epam.msfrolov.musicstore.xml.plain_sax.PlainSAXBuilder;
 import com.epam.msfrolov.musicstore.xml.sax.SAXBuilder;
 
 import static com.epam.msfrolov.musicstore.xml.BuilderFactory.BuilderType.*;
@@ -18,9 +19,11 @@ public class BuilderFactory {
             builder = new SAXBuilder<>(clazz);
         }
 //        else if (type == STAX)
-//            return new StAXBuilder();
+//            builder = new StAXBuilder();
 //        else if (type == DOM)
-//            return new DOMBuilder();
+//            builder = new DOMBuilder();
+        else if (type == PLAINSAX)
+            builder = new PlainSAXBuilder<>(clazz);
         else
             throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
         return builder;
@@ -28,6 +31,6 @@ public class BuilderFactory {
 
 
     public enum BuilderType {
-        JAXB, SAX, STAX, DOM
+        JAXB, SAX, STAX, DOM, PLAINSAX
     }
 }

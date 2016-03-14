@@ -11,8 +11,9 @@ public class BuilderFactoryTest {
 
     @Test
     public void testBuilders() throws Exception {
-        testBuilder("jaxb");
+        //testBuilder("jaxb");
         testBuilder("sax");
+        //testBuilder("plainsax");
     }
 
     private void testBuilder(String typeBuilder) {
