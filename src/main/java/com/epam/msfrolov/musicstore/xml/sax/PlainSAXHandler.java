@@ -1,5 +1,6 @@
 package com.epam.msfrolov.musicstore.xml.sax;
 
+import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.xml.HandlerClasses;
 import org.slf4j.Logger;
@@ -58,11 +59,14 @@ public class PlainSAXHandler<T> extends DefaultHandler {
         //if ()
         log.debug(" - 1add elements  {}: ", elements);
         log.debug(" - 1add objects   {}: ", objects);
-        if ("list".equalsIgnoreCase(localName)){
-            log.debug(" -  LIST add elements  {}: ", elements);
-            log.debug(" - LIST add objects   {}: ", objects);
-            //pushObject(ArrayList);
-    }else if(!invalidClasses.contains(localName)) {
+        if ("list".equalsIgnoreCase(localName)) {
+            Field currentField = getField(nextToLastElement(), lastObject().getClass());
+            Class type = currentField.getType();
+            List<Track> list = new ArrayList<>();
+            pushObject(list);
+            //log.debug(" -  LIST add elements  {}: ", elements);
+            //log.debug(" - LIST add objects   {}: ", objects);
+        } else if (!invalidClasses.contains(localName)) {
             try {
                 log.debug("try create class: {}", modelPackage + className);
                 Class clazz = Class.forName(modelPackage + className);
@@ -94,8 +98,12 @@ public class PlainSAXHandler<T> extends DefaultHandler {
         } else if (lastElement().equalsIgnoreCase(lastObject().getClass().getSimpleName()) && objects.size() > 1) {//if we are in the method of "character" of the CURRENT CLASS
             try {
                 Field currentField = getField(lastElement(), nextToLastObject().getClass()); //get field of next to last object for to set the current object in it
-                currentField.setAccessible(true);
-                currentField.set(nextToLastObject(), lastObject());
+                if (currentField != null) {
+                    currentField.setAccessible(true);
+                    currentField.set(nextToLastObject(), lastObject());
+                } else {
+                    throw new NullPointerException();
+                }
             } catch (NullPointerException e) {
                 e.printStackTrace();
                 log.debug("field " + "\"" + lastElement() + "\"" + " is not found, in LTN Cl:" + nextToLastObject().getClass(), e);
@@ -107,8 +115,12 @@ public class PlainSAXHandler<T> extends DefaultHandler {
             if (HandlerClasses.checkContainsField(lastElement(), lastObject().getClass())) {
                 try {
                     Field currentField = getField(lastElement(), lastObject().getClass());
-                    currentField.setAccessible(true);
-                    currentField.set(lastObject(), stringBuilder);
+                    if (currentField != null) {
+                        currentField.setAccessible(true);
+                        currentField.set(lastObject(), stringBuilder);
+                    } else {
+                        throw new NullPointerException();
+                    }
                 } catch (NullPointerException e) {
                     log.debug("field " + "\"" + lastElement() + "\"" + " is not found, in Last Cl:" + lastObject().getClass(), e);
                 } catch (IllegalAccessException e) {
