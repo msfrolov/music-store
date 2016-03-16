@@ -9,7 +9,7 @@ import java.util.List;
 
 import static com.epam.msfrolov.musicstore.model.Track.durationFormat;
 
-@XmlRootElement(name = "User")
+@XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.NONE)
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
@@ -17,7 +17,7 @@ public class User extends NamedEntity {
     @XmlElement(name = "account")
     private Account account;
 
-    @XmlElement(name = "boughtTracks", type = Playlist.class)
+    @XmlElement(name = "boughttracks", type = Playlist.class)
     private Playlist boughtTracks;
     private List<Playlist> playlists;
 

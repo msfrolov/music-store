@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.epam.msfrolov.musicstore.xml.util.HandlerClasses.checkPresenceField;
+import static com.epam.msfrolov.musicstore.xml.HandlerClasses.checkContainsField;
 
 public class SAXHandler<T> extends DefaultHandler {
 
@@ -53,7 +53,7 @@ public class SAXHandler<T> extends DefaultHandler {
             } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
-            if (checkPresenceField(localName, currentObject.getClass())) {
+            if (checkContainsField(localName, currentObject.getClass())) {
                 //fill in current class
 
                 Field field = null;

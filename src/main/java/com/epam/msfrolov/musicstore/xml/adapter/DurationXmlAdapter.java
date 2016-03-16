@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.util;
+package com.epam.msfrolov.musicstore.xml.adapter;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.Duration;

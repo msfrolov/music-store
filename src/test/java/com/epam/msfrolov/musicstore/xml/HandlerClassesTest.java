@@ -2,7 +2,6 @@ package com.epam.msfrolov.musicstore.xml;
 
 import com.epam.msfrolov.musicstore.model.BaseEntity;
 import com.epam.msfrolov.musicstore.model.Track;
-import com.epam.msfrolov.musicstore.xml.util.HandlerClasses;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
@@ -15,7 +14,7 @@ public class HandlerClassesTest {
 
     @Test
     public void testCheckPresenceField() throws Exception {
-        assertTrue(HandlerClasses.checkPresenceField("duration", Track.class));
+        assertTrue(HandlerClasses.checkContainsField("duration", Track.class));
     }
 
     @Test

@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.util.MoneyXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.MoneyXmlAdapter;
 import org.joda.money.Money;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -19,7 +19,6 @@ public class Account extends BaseEntity {
 
     public Account() {
         this(User.ADMIN);
-
     }
 
     public Account(User user) {

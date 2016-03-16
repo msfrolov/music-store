@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.util.DurationXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.DurationXmlAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

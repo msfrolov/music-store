@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="User" type="user"/>
+  <xs:element name="user" type="user"/>
 
   <xs:complexType name="user">
     <xs:complexContent>
       <xs:extension base="namedEntity">
         <xs:sequence>
           <xs:element name="account" type="account" minOccurs="0"/>
-          <xs:element name="boughtTracks" type="playlist" minOccurs="0"/>
+          <xs:element name="boughttracks" type="playlist" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -44,10 +44,10 @@
     <xs:complexContent>
       <xs:extension base="multimediaEntity">
         <xs:sequence>
-          <xs:element name="value" minOccurs="0">
+          <xs:element name="tracks" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="Track" type="track" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="track" type="track" minOccurs="0" maxOccurs="unbounded"/>
               </xs:sequence>
             </xs:complexType>
           </xs:element>

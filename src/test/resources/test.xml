@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<User>
-    <id>81345</id>
-    <name> Pink Floyd</name>
+<user>
+    <id>65370</id>
+    <name>Electric Light Orchestra</name>
     <account>
-        <value>KZT 143945.00</value>
+        <value>KZT 143899.00</value>
     </account>
-    <boughtTracks>
-        <duration>4235</duration>
-        <value>
-            <Track>
-                <id>80729</id>
-                <name> The Beatles - Come Together</name>
-                <duration>100</duration>
-                <price>KZT 148.00</price>
-                <style>Готик-рок</style>
-            </Track>
-            <Track>
-                <id>66591</id>
-                <name> Eagles - Hotel California</name>
+    <boughttracks>
+        <duration>4499</duration>
+        <list>
+            <track>
+                <id>68781</id>
+                <name>Джон Леннон - Imagine</name>
+                <duration>256</duration>
+                <price>KZT 283.00</price>
+                <style>Lo-Fi</style>
+            </track>
+            <track>
+                <id>28389</id>
+                <name>The Rolling Stones - (I Can't Get No) Satisfaction</name>
                 <duration>74</duration>
-                <price>KZT 548.00</price>
-                <style>Викинг-метал</style>
-            </Track>
-            <Track>
-                <id>41748</id>
-                <name> Status Quo - In the Army Now</name>
-                <duration>212</duration>
-                <price>KZT 78.00</price>
-                <style>Психоделический рок</style>
-            </Track>
-            <Track>
-                <id>50226</id>
-                <name> The Rolling Stones - (I Can't Get No) Satisfaction</name>
-                <duration>357</duration>
-                <price>KZT 252.00</price>
-                <style>8 бит</style>
-            </Track>
-            <Track>
-                <id>78635</id>
-                <name> Scorpions - Wind of change</name>
-                <duration>318</duration>
-                <price>KZT 483.00</price>
-                <style>Глэм-рок</style>
-            </Track>
-            <Track>
-                <id>95484</id>
-                <name> Дэвид Боуи - Ziggy Stardust</name>
-                <duration>301</duration>
-                <price>KZT 411.00</price>
-                <style>Электро-хаус</style>
-            </Track>
-            <Track>
-                <id>96805</id>
-                <name> Status Quo - In the Army Now</name>
-                <duration>350</duration>
-                <price>KZT 358.00</price>
-                <style>Симфонический блэк-метал</style>
-            </Track>
-            <Track>
-                <id>67014</id>
-                <name> Элтон Джон - Goodbye Yellow Brick Road</name>
-                <duration>340</duration>
-                <price>KZT 534.00</price>
-                <style>Гаражный рок</style>
-            </Track>
-            <Track>
-                <id>69454</id>
-                <name> Chicago - If You Leave Me Now</name>
-                <duration>212</duration>
-                <price>KZT 277.00</price>
-                <style>Дрон</style>
-            </Track>
-            <Track>
-                <id>70388</id>
-                <name> Carpenters - For All We Know</name>
-                <duration>172</duration>
-                <price>KZT 82.00</price>
-                <style>Пауэр-метал</style>
-            </Track>
-            <Track>
-                <id>5320</id>
-                <name> Nazareth - Love Hurts</name>
-                <duration>110</duration>
-                <price>KZT 428.00</price>
-                <style>Готик-рок</style>
-            </Track>
-            <Track>
-                <id>23875</id>
-                <name> Pink Floyd - Another Brick in the Wall</name>
-                <duration>129</duration>
-                <price>KZT 142.00</price>
-                <style>Нойз-поп</style>
-            </Track>
-            <Track>
-                <id>6420</id>
-                <name> Cream - Sunshine Of Your Love</name>
+                <price>KZT 492.00</price>
+                <style>Альтернативный метал</style>
+            </track>
+            <track>
+                <id>90437</id>
+                <name>Bread - Lost Without Your Love</name>
+                <duration>63</duration>
+                <price>KZT 528.00</price>
+                <style>Мэдчестер</style>
+            </track>
+            <track>
+                <id>37455</id>
+                <name>Bee Gees - To Love Somebody</name>
+                <duration>86</duration>
+                <price>KZT 434.00</price>
+                <style>Нью-метал</style>
+            </track>
+            <track>
+                <id>58264</id>
+                <name>The Beatles - Strawberry Fields Forever</name>
+                <duration>281</duration>
+                <price>KZT 318.00</price>
+                <style>Нойз-рок</style>
+            </track>
+            <track>
+                <id>36837</id>
+                <name>Led Zeppelin - When the Levee Breaks</name>
+                <duration>177</duration>
+                <price>KZT 121.00</price>
+                <style>Софт-рок</style>
+            </track>
+            <track>
+                <id>57144</id>
+                <name>Стиви Уандер - I Just Called to Say I Love You</name>
                 <duration>240</duration>
-                <price>KZT 109.00</price>
-                <style>Стоунер-рок</style>
-            </Track>
-            <Track>
-                <id>6134</id>
-                <name> Cream - Sunshine Of Your Love</name>
-                <duration>324</duration>
-                <price>KZT 100.00</price>
-                <style>Тви-поп</style>
-            </Track>
-            <Track>
-                <id>99752</id>
-                <name> Bread - Guitar Man</name>
-                <duration>84</duration>
-                <price>KZT 549.00</price>
-                <style>Дум-метал</style>
-            </Track>
-            <Track>
-                <id>61641</id>
-                <name> The Rolling Stones - (I Can't Get No) Satisfaction</name>
-                <duration>211</duration>
-                <price>KZT 344.00</price>
-                <style>Брит-поп</style>
-            </Track>
-            <Track>
-                <id>83475</id>
-                <name> The Beatles - All You Need Is Love</name>
-                <duration>135</duration>
-                <price>KZT 135.00</price>
-                <style>Металкор</style>
-            </Track>
-            <Track>
-                <id>80555</id>
-                <name> Pink Floyd - Shine on You Crazy Diamond</name>
-                <duration>79</duration>
-                <price>KZT 495.00</price>
-                <style>Мат-рок</style>
-            </Track>
-            <Track>
-                <id>62154</id>
-                <name> Electric Light Orchestra - Ticket To the Moon</name>
-                <duration>191</duration>
-                <price>KZT 386.00</price>
-                <style>Дэт-метал</style>
-            </Track>
-            <Track>
-                <id>52309</id>
-                <name> The Beatles - Help!</name>
-                <duration>296</duration>
-                <price>KZT 196.00</price>
+                <price>KZT 342.00</price>
+                <style>Поп-рок</style>
+            </track>
+            <track>
+                <id>95357</id>
+                <name>The Mamas and The Papas - California Dreamin'</name>
+                <duration>307</duration>
+                <price>KZT 230.00</price>
+                <style>Кантри-рок</style>
+            </track>
+            <track>
+                <id>2588</id>
+                <name>Nirvana - Smells Like Teen Spirit</name>
+                <duration>129</duration>
+                <price>KZT 269.00</price>
+                <style>Паб-рок</style>
+            </track>
+            <track>
+                <id>78899</id>
+                <name>Procol Harum - A Whiter Shade Of Pale</name>
+                <duration>279</duration>
+                <price>KZT 408.00</price>
+                <style>Ду-воп</style>
+            </track>
+            <track>
+                <id>56068</id>
+                <name>Carpenters - Goodbye To Love</name>
+                <duration>340</duration>
+                <price>KZT 256.00</price>
                 <style>Хардкор</style>
-            </Track>
-        </value>
-    </boughtTracks>
-</User>
+            </track>
+            <track>
+                <id>94961</id>
+                <name>Eagles - Hotel California</name>
+                <duration>324</duration>
+                <price>KZT 368.00</price>
+                <style>Брит-поп</style>
+            </track>
+            <track>
+                <id>6656</id>
+                <name>The Rolling Stones - Angie</name>
+                <duration>301</duration>
+                <price>KZT 223.00</price>
+                <style>Lo-Fi</style>
+            </track>
+            <track>
+                <id>71045</id>
+                <name>The Doors - Light My Fire</name>
+                <duration>327</duration>
+                <price>KZT 103.00</price>
+                <style>Хардкор</style>
+            </track>
+            <track>
+                <id>88145</id>
+                <name>Deep Purple - Smoke on the Water</name>
+                <duration>216</duration>
+                <price>KZT 142.00</price>
+                <style>Гранж</style>
+            </track>
+            <track>
+                <id>18473</id>
+                <name>Bee Gees - Stayin' Alive</name>
+                <duration>128</duration>
+                <price>KZT 250.00</price>
+                <style>Поп-панк</style>
+            </track>
+            <track>
+                <id>24674</id>
+                <name>The Beach Boys - I Can Hear Music</name>
+                <duration>320</duration>
+                <price>KZT 401.00</price>
+                <style>Неорокабилли</style>
+            </track>
+            <track>
+                <id>38788</id>
+                <name>Pink Floyd - Another Brick in the Wall</name>
+                <duration>71</duration>
+                <price>KZT 446.00</price>
+                <style>Готик-метал</style>
+            </track>
+            <track>
+                <id>99029</id>
+                <name>Jethro Tull - Aqualung</name>
+                <duration>288</duration>
+                <price>KZT 383.00</price>
+                <style>Мерсибит</style>
+            </track>
+            <track>
+                <id>39037</id>
+                <name>The Beatles - Michelle</name>
+                <duration>292</duration>
+                <price>KZT 104.00</price>
+                <style>Блэк-метал</style>
+            </track>
+        </list>
+    </boughttracks>
+</user>

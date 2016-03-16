@@ -1,12 +1,12 @@
 package com.epam.msfrolov.musicstore.xml.jaxb;
 
-import com.epam.msfrolov.musicstore.xml.Builder;
+import com.epam.msfrolov.musicstore.xml.Parser;
 
-public class JAXBBuilder<T> implements Builder<T> {
+public class JAXBParser<T> implements Parser<T> {
     private T currentUser;
     private Class clazz;
 
-    public JAXBBuilder(Class<T> clazz) {
+    public JAXBParser(Class<T> clazz) {
         this.clazz = clazz;
     }
 

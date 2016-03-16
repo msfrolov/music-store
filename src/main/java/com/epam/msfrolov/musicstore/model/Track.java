@@ -1,6 +1,6 @@
 package com.epam.msfrolov.musicstore.model;
 
-import com.epam.msfrolov.musicstore.xml.util.StyleXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.StyleXmlAdapter;
 import org.apache.commons.io.FileUtils;
 import org.joda.money.Money;
 

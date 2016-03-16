@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.util;
+package com.epam.msfrolov.musicstore.xml.adapter;
 
 import org.joda.money.Money;
 

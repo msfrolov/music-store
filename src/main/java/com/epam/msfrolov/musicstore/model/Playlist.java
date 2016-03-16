@@ -9,9 +9,9 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     private final User owner;
 
-    @XmlElementWrapper(name = "value")
+    @XmlElementWrapper(name = "list")
     @XmlElements({
-            @XmlElement(name = "Track")
+            @XmlElement(name = "track")
     })
     private List<Track> value = new ArrayList<>();
 

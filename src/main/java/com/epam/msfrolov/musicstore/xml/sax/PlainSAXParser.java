@@ -1,20 +1,20 @@
 package com.epam.msfrolov.musicstore.xml.sax;
 
-import com.epam.msfrolov.musicstore.xml.Builder;
+import com.epam.msfrolov.musicstore.xml.Parser;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
 
-public class SAXBuilder<T> implements Builder<T> {
+public class PlainSAXParser<T> implements Parser<T> {
 
     XMLReader reader;
-    SAXHandler<T> handler;
+    PlainSAXHandler<T> handler;
     private T result;
 
-    public SAXBuilder(Class<T> clazz) {
-        handler = new SAXHandler<>(clazz);
+    public PlainSAXParser(Class<T> clazz) {
+        handler = new PlainSAXHandler<>(clazz);
         try {
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(handler);

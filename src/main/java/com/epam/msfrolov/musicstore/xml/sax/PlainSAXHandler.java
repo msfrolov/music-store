@@ -58,7 +58,11 @@ public class PlainSAXHandler<T> extends DefaultHandler {
         //if ()
         log.debug(" - 1add elements  {}: ", elements);
         log.debug(" - 1add objects   {}: ", objects);
-        if (!invalidClasses.contains(localName)) {
+        if ("list".equalsIgnoreCase(localName)){
+            log.debug(" -  LIST add elements  {}: ", elements);
+            log.debug(" - LIST add objects   {}: ", objects);
+            //pushObject(ArrayList);
+    }else if(!invalidClasses.contains(localName)) {
             try {
                 log.debug("try create class: {}", modelPackage + className);
                 Class clazz = Class.forName(modelPackage + className);
@@ -97,7 +101,7 @@ public class PlainSAXHandler<T> extends DefaultHandler {
                 log.debug("field " + "\"" + lastElement() + "\"" + " is not found, in LTN Cl:" + nextToLastObject().getClass(), e);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
-                log.debug("wtf, my code is not working?", e);
+                log.debug("wtf", e);
             }
         } else if (lastElement().equalsIgnoreCase(nextToLastObject().getClass().getSimpleName())) {  //if we are in the method of "character" of the FIELDS current class
             if (HandlerClasses.checkContainsField(lastElement(), lastObject().getClass())) {
@@ -108,7 +112,7 @@ public class PlainSAXHandler<T> extends DefaultHandler {
                 } catch (NullPointerException e) {
                     log.debug("field " + "\"" + lastElement() + "\"" + " is not found, in Last Cl:" + lastObject().getClass(), e);
                 } catch (IllegalAccessException e) {
-                    log.debug("wtf, my code is not working?", e);
+                    log.debug("wtf", e);
                 }
             }
         } else {    //It's impossible =)
