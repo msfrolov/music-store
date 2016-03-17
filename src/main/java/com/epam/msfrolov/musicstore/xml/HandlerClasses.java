@@ -89,8 +89,25 @@ public class HandlerClasses {
             ParameterizedType genericType = (ParameterizedType) field.getGenericType();
             foundClass = (Class) genericType.getActualTypeArguments()[0];
         } catch (NoSuchFieldException e) {
+            log.error("Can not return type of generic!", e);
             e.printStackTrace();
         }
         return foundClass;
     }
+
+    public static void setValue(Object object, Object value, String fieldName) {
+        try {
+            Field field = object.getClass().getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(object, value);
+        } catch (NoSuchFieldException e) {
+            log.error("Field not found!", e);
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            log.error("Can not set the value in the field!", e);
+            e.printStackTrace();
+        }
+    }
+
+
 }

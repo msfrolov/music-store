@@ -92,11 +92,29 @@ public class SAXHandler<T> extends DefaultHandler {
         log.debug("Obj   {}/{}", currentObject, objects);
         log.debug("Elm  {}/{}", currentElement, elements);
         if (classNames.contains(localName)) {
+            if (peekNextToLastObj() instanceof List) {
+                log.debug("DIFF-LIST|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                log.debug("Obj   {}/{}", currentObject, objects);
+                log.debug("Elem  {}/{}", currentElement, elements);
 
 
+                log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            } else if (checkField(localName, peekObj().getClass())) {
+                log.debug("DIFF-OBJ|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                log.debug("Obj   {}/{}", currentObject, objects);
+                log.debug("Elem  {}/{}", currentElement, elements);
+
+
+                log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            }
+        } else {
+            log.debug("SIMPLE|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            log.debug("Obj   {}/{}", currentObject, objects);
+            log.debug("Elem  {}/{}", currentElement, elements);
+
+
+            log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         }
-
-
         popElem();
         if (classNames.contains(localName)) {
             popObj();
