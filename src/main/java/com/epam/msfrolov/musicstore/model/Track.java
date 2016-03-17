@@ -63,7 +63,7 @@ public class Track extends CommercialMultimediaEntity {
 
     @Override
     public String toString() {
-        return "{ " +
+        return "Track{ " +
                 "id: " + getId() +
                 " name: " + getName() +
                 " style: " + getStyle() +

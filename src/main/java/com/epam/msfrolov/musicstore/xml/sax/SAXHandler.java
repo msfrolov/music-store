@@ -46,6 +46,7 @@ public class SAXHandler<T> extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         log.info("<startElement> = |{}|", localName);
+        currentCh.setLength(0);
         pushElem(localName);
         log.debug("Obj   {}/{}", currentObject, objects);
         log.debug("Elem  {}/{}", currentElement, elements);
@@ -92,27 +93,34 @@ public class SAXHandler<T> extends DefaultHandler {
         log.debug("Obj   {}/{}", currentObject, objects);
         log.debug("Elm  {}/{}", currentElement, elements);
         if (classNames.contains(localName)) {
-            if (peekNextToLastObj() instanceof List) {
+            if (localName.equalsIgnoreCase(clazz.getSimpleName())) {
+                log.debug("last object {}", popObj());
+            } else if (peekNextToLastObj() instanceof List) {
                 log.debug("DIFF-LIST|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
                 log.debug("Obj   {}/{}", currentObject, objects);
                 log.debug("Elem  {}/{}", currentElement, elements);
-
-
+                setValue(peekNextToLastObj(),peekObj());
                 log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
-            } else if (checkField(localName, peekObj().getClass())) {
+            } else if (checkField(localName, peekNextToLastObj().getClass())) {
                 log.debug("DIFF-OBJ|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
                 log.debug("Obj   {}/{}", currentObject, objects);
                 log.debug("Elem  {}/{}", currentElement, elements);
-
-
+                setValue(peekNextToLastObj(),peekObj(),peekElem());
+                log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+            } else {
+                log.debug("DIFF-WTF|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                log.debug("Obj   {}/{}", currentObject, objects);
+                log.debug("Elem  {}/{}", currentElement, elements);
                 log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
             }
         } else {
             log.debug("SIMPLE|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
             log.debug("Obj   {}/{}", currentObject, objects);
             log.debug("Elem  {}/{}", currentElement, elements);
-
-
+            log.debug("----!!!!!    peekObj()|{}", peekObj());
+            log.debug("----!!!!!    currentCh |{}", currentCh);
+            log.debug("----!!!!!    peekElem()|{}", peekElem());
+            setValue(peekObj(),currentCh.toString().trim(),peekElem());
             log.debug("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
         }
         popElem();

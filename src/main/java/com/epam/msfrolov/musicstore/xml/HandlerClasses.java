@@ -1,10 +1,17 @@
 package com.epam.msfrolov.musicstore.xml;
 
+import com.epam.msfrolov.musicstore.model.Style;
+import com.epam.msfrolov.musicstore.xml.adapter.DurationXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.IntegerXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.MoneyXmlAdapter;
+import com.epam.msfrolov.musicstore.xml.adapter.StyleXmlAdapter;
+import org.joda.money.Money;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -95,18 +102,51 @@ public class HandlerClasses {
         return foundClass;
     }
 
+    public static void setValue(Object object, Object value) {
+        setValue(object, value, "");
+    }
+
+    @SuppressWarnings("unchecked")
     public static void setValue(Object object, Object value, String fieldName) {
         try {
-            Field field = object.getClass().getDeclaredField(fieldName);
+            if (object instanceof List) {
+                ((List) object).add(value);
+                return;
+            }
+            Field field = getField(fieldName, object.getClass());
+            assert field != null;
             field.setAccessible(true);
+            //if (value.getClass() == String.class && ((Class) field.getType()) != String.class) {
+            Class modifyClass = (Class) field.getType();
+            value = modifyTypeValue(value, modifyClass);
+            //}
             field.set(object, value);
-        } catch (NoSuchFieldException e) {
-            log.error("Field not found!", e);
-            e.printStackTrace();
         } catch (IllegalAccessException e) {
             log.error("Can not set the value in the field!", e);
             e.printStackTrace();
         }
+    }
+
+    private static Object modifyTypeValue(Object value, Class clazz) {
+        Object object = null;
+        String stringValue = "";
+        if (value.getClass() == String.class)
+            stringValue = (String) value;
+        try {
+            if (clazz == Integer.class) {
+                object = new IntegerXmlAdapter().unmarshal(stringValue);
+            } else if (clazz == Money.class) {
+                object = new MoneyXmlAdapter().unmarshal(stringValue);
+            } else if (clazz == Duration.class) {
+                object = new DurationXmlAdapter().unmarshal(stringValue);
+            } else if (clazz == Style.class) {
+                object = new StyleXmlAdapter().unmarshal(stringValue);
+            } else
+                object = value;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return object;
     }
 
 
