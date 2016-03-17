@@ -49,16 +49,15 @@ public class SAXHandler<T> extends DefaultHandler {
         pushElem(localName);
         log.debug("Obj   {}/{}", currentObject, objects);
         log.debug("Elem  {}/{}", currentElement, elements);
-        if (classNames.contains(localName) && (peekObj() != null
-                && ((peekObj() instanceof List) || checkField(localName, peekObj().getClass())))) {
+        if (classNames.contains(localName) && peekObj() != null) {
             log.debug("Зашоль");
-            Class currentClass;
+            Class currentClass = null;
             if (peekObj() instanceof List) {
                 currentClass = getGenericType(peekNextToLastObj().getClass());
                 log.debug("FOUND THIS TYPE {}", currentClass);
                 log.debug("Obj   {}/{}", currentObject, objects);
                 log.debug("Elem  {}/{}", currentElement, elements);
-            } else {
+            } else if (checkField(localName, peekObj().getClass())) {
                 Field currentField = getField(localName, peekObj().getClass());
                 log.debug("поля нашель");
                 assert currentField != null;
@@ -70,7 +69,7 @@ public class SAXHandler<T> extends DefaultHandler {
         } else if (localName.equalsIgnoreCase(clazz.getSimpleName())) {
             Object o;
             if ((o = createInstance(clazz)) != null) pushObj(o);
-        } else if (checkField(localName, peekObj().getClass())){
+        } else if (checkField(localName, peekObj().getClass())) {
             log.debug("Simple Field!");
         } else {
             log.debug("Field is not found!");
@@ -92,10 +91,9 @@ public class SAXHandler<T> extends DefaultHandler {
         log.info("<endElement> = |{}|", localName);
         log.debug("Obj   {}/{}", currentObject, objects);
         log.debug("Elm  {}/{}", currentElement, elements);
-        if (classNames.contains(localName)){
+        if (classNames.contains(localName)) {
 
 
-            
         }
 
 
