@@ -2,7 +2,6 @@ package com.epam.msfrolov.musicstore.util;
 
 import org.joda.money.Money;
 
-import java.security.SecureRandom;
 import java.time.Duration;
 import java.util.Random;
 
@@ -11,19 +10,19 @@ public class ServiceRandom {
     public static Random random = new Random();
 
     public static String getRandomName() {
-        return FileHandling.getRandomLine(FileHandling.TRACK_NAME);
+        return FileHandler.getRandomLine(FileHandler.TRACK_NAME);
     }
 
     public static String getRandomStyle() {
-        return FileHandling.getRandomLine(FileHandling.MUSIC_STYLE);
+        return FileHandler.getRandomLine(FileHandler.MUSIC_STYLE);
     }
 
     public static String getRandomAlbum() {
-        return FileHandling.getRandomLine(FileHandling.TRACK_ALBUM);
+        return FileHandler.getRandomLine(FileHandler.TRACK_ALBUM);
     }
 
     public static String getRandomArtist() {
-        return FileHandling.getRandomLine(FileHandling.TRACK_ARTIST);
+        return FileHandler.getRandomLine(FileHandler.TRACK_ARTIST);
     }
 
     public static Long getRandomFileSize() {
@@ -32,7 +31,7 @@ public class ServiceRandom {
     }
 
     public static String getRandomComment() {
-        return FileHandling.getRandomLine(FileHandling.TRACK_ALBUM);
+        return FileHandler.getRandomLine(FileHandler.TRACK_ALBUM);
     }
 
     public static Money getRandomPrise() {

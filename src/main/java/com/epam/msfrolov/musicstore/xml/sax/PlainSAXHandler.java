@@ -112,7 +112,7 @@ public class PlainSAXHandler<T> extends DefaultHandler {
                 log.debug("wtf", e);
             }
         } else if (lastElement().equalsIgnoreCase(nextToLastObject().getClass().getSimpleName())) {  //if we are in the method of "character" of the FIELDS current class
-            if (HandlerClasses.checkContainsField(lastElement(), lastObject().getClass())) {
+            if (HandlerClasses.checkField(lastElement(), lastObject().getClass())) {
                 try {
                     Field currentField = getField(lastElement(), lastObject().getClass());
                     if (currentField != null) {

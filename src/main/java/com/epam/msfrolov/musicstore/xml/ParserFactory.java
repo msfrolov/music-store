@@ -8,26 +8,22 @@ import static com.epam.msfrolov.musicstore.xml.ParserFactory.BuilderType.*;
 
 public class ParserFactory {
 
-    public <T> Parser create(String builderType, Class<T> clazz) {
-        Parser<T> parser = null;
+    public <T> Parser<T> create(String builderType, Class<T> clazz) {
         BuilderType type = valueOf(builderType.toUpperCase());
-
         if (type == JAXB) {
-            parser = new JAXBParser<>(clazz);
-            return parser;
+            return new JAXBParser<>(clazz);
         } else if (type == SAX) {
-            parser = new SAXParser<>(clazz);
+            return new SAXParser<>(clazz);
         } else if (type == STAX) {
-            //builder = new StAXBuilder();
+            //return new StAXBuilder();
         } else if (type == DOM) {
-            //parser = new DOMBuilder();
+            //return new DOMBuilder();
         } else if (type == PLAINSAX) {
-            parser = new PlainSAXParser<>(clazz);
+            return new PlainSAXParser<>(clazz);
         } else
             throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
-        return parser;
+        return null;
     }
-
 
     public enum BuilderType {
         JAXB, SAX, STAX, DOM, PLAINSAX

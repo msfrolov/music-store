@@ -12,18 +12,13 @@ public class ParserFactoryTest {
     @Test
     public void testBuilders() throws Exception {
         //testBuilder("jaxb");
-        //testBuilder("sax");
-        testBuilder("plainsax");
+        testBuilder("sax");
     }
 
     private void testBuilder(String typeBuilder) {
         ParserFactory parserFactory = new ParserFactory();
-        Parser parser = parserFactory.create(typeBuilder, User.class);
-        parser.buildSet("src/test/resources/test.xml");
-
-        Object instance = parser.getInstance();
-        User user = (User) instance;
-
-        log.debug("Oh, it's alive! {}", user.toStringWithDetails());
+        Parser<User> parser = parserFactory.create(typeBuilder, User.class);
+        User instance = parser.parse("src/test/resources/test.xml");
+        log.debug("Oh, it's alive! {}", instance.toStringWithDetails());
     }
 }

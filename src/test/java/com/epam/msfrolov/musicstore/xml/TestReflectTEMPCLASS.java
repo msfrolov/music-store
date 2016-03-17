@@ -2,6 +2,7 @@ package com.epam.msfrolov.musicstore.xml;
 
 import com.epam.msfrolov.musicstore.factory.TrackFactory;
 import com.epam.msfrolov.musicstore.factory.UserFactory;
+import com.epam.msfrolov.musicstore.model.Playlist;
 import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.util.StoreService;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,6 +41,9 @@ public class TestReflectTEMPCLASS {
 
 
     }
+
+    private List<Track> tracks;
+
     @Test
     @SuppressWarnings("unchecked")
     public void test1123() throws Exception {
@@ -52,14 +57,11 @@ public class TestReflectTEMPCLASS {
 //        List<Track> tracks1 = (List<Track>) o;
 //        System.out.println("Warning!");
 //        System.out.println(tracks1);
-        LinkedList<Integer> integers = new LinkedList<>();
-        integers.addLast(0);
-        integers.addLast(1);
-        integers.addLast(2);
-        integers.pollLast();
-        integers.addLast(3);
-        integers.addLast(4);
-        System.out.println(integers.peekLast());
-        System.out.println(integers);
+
+        Field tr = TestReflectTEMPCLASS.class.getDeclaredField("tracks");
+        ParameterizedType genericType = (ParameterizedType) tr.getGenericType();
+        Class clazz = (Class) genericType.getActualTypeArguments()[0];
+        System.out.println(clazz.getName());
+
     }
 }

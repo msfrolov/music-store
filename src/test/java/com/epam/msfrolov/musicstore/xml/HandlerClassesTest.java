@@ -14,12 +14,12 @@ public class HandlerClassesTest {
 
     @Test
     public void testCheckPresenceField() throws Exception {
-        assertTrue(HandlerClasses.checkContainsField("duration", Track.class));
+        assertTrue(HandlerClasses.checkField("duration", Track.class));
     }
 
     @Test
     public void testGetAllField() throws Exception {
-        List<Field> allField = HandlerClasses.getAllField(Track.class);
+        List<Field> allField = HandlerClasses.getAllFields(Track.class);
         assertEquals(10, allField.size());
     }
 

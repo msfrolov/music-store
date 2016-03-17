@@ -20,7 +20,7 @@ public class Interactive {
     static List<Track> trackArrayList = new ArrayList<>();
     static List<Album> albumArrayList = new ArrayList<>();
     static User user = UserFactory.getRandomUser();
-    static Playlist userPlaylist = user.createPlaylist(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE));
+    static Playlist userPlaylist = user.createPlaylist(FileHandler.getRandomLine(FileHandler.MUSIC_STYLE));
 
 
     public static void useExamplesTracks() {
@@ -90,7 +90,7 @@ public class Interactive {
         System.out.println(userPlaylist.filterByName("Beatles"));
 
         System.out.println("filterByStyle");
-        System.out.println(userPlaylist.filterByStyle(new Style(FileHandling.getRandomLine(FileHandling.MUSIC_STYLE))));
+        System.out.println(userPlaylist.filterByStyle(new Style(FileHandler.getRandomLine(FileHandler.MUSIC_STYLE))));
     }
 
     public static void useIterator() {

@@ -9,11 +9,11 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     private final User owner;
 
-    @XmlElementWrapper(name = "list")
+    @XmlElementWrapper(name = "tracks")
     @XmlElements({
             @XmlElement(name = "track")
     })
-    private List<Track> value = new ArrayList<>();
+    private List<Track> tracks = new ArrayList<>();
 
     public Playlist() {
         this.owner = User.ADMIN;
@@ -36,15 +36,15 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public Iterator<Track> iterator() {
-        return value.iterator();
+        return tracks.iterator();
     }
 
     @Override
     public boolean add(Track file) {
         if ((owner != User.ADMIN)
                 && (owner.getBoughtTracks().contains(file))
-                && (!this.value.contains(file)) || this.getId().equals(owner.getBoughtTracks().getId())) {
-            value.add(file);
+                && (!this.tracks.contains(file)) || this.getId().equals(owner.getBoughtTracks().getId())) {
+            tracks.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
             return true;
         }
@@ -54,9 +54,9 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
     public boolean addBuy(Track file) {
         if ((owner != User.ADMIN)
                 && (owner.getBoughtTracks().contains(file))
-                && (!this.value.contains(file))) {
+                && (!this.tracks.contains(file))) {
             System.out.println("ADD  " + file);
-            value.add(file);
+            tracks.add(file);
             this.setDuration(this.getDuration().plus(file.getDuration()));
             return true;
         }
@@ -66,8 +66,8 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public boolean remove(Track file) {
-        if (this.value.indexOf(file) < 0) {
-            value.remove(file);
+        if (this.tracks.indexOf(file) < 0) {
+            tracks.remove(file);
             this.setDuration(this.getDuration().minus(file.getDuration()));
             return true;
         }
@@ -76,7 +76,7 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public void sort(Comparator<Track> comparator) {
-        Collections.sort(this.value, comparator);
+        Collections.sort(this.tracks, comparator);
     }
 
     public Playlist filterByName(String substring) {
@@ -110,18 +110,18 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public List<Track> getList() {
-        return Collections.unmodifiableList(value);
+        return Collections.unmodifiableList(tracks);
     }
 
     public int size() {
-        return value.size();
+        return tracks.size();
     }
 
     @Override
     public String toString() {
         return "PLAYLIST {" +
                 " name: " + this.getName() +
-                " number of tracks: " + this.value.size() +
+                " number of tracks: " + this.tracks.size() +
                 " duration: " + Track.durationFormat(getDuration()) +
                 '}';
     }
@@ -130,7 +130,7 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("PLAYLIST {");
         stringBuilder.append("\n");
-        for (Track track : value) {
+        for (Track track : tracks) {
             stringBuilder.append(track);
             stringBuilder.append("\n");
         }
@@ -140,7 +140,7 @@ public class Playlist extends MultimediaEntity implements Tracklist, Iterable<Tr
 
     @Override
     public boolean contains(Track track) {
-        return value.contains(track);
+        return tracks.contains(track);
     }
 }
 

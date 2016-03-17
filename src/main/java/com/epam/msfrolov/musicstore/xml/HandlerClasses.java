@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -12,10 +13,10 @@ import java.util.List;
 public class HandlerClasses {
     private static final Logger log = LoggerFactory.getLogger(HandlerClasses.class);
 
-    public static boolean checkContainsField(String fieldName, Class clazz) {
-        List<Field> allField = getAllField(clazz);
+    public static boolean checkField(String fieldName, Class clasz) {
+        List<Field> allField = getAllFields(clasz);
         for (Field field : allField) {
-            log.debug("current field: {}, field name: {}", field.getName(), fieldName);
+            log.debug("Compare: {} and {} in clazz " + clasz.getSimpleName(), field.getName(), fieldName);
             if (field.getName().equalsIgnoreCase(fieldName))
                 return true;
         }
@@ -23,14 +24,14 @@ public class HandlerClasses {
     }
 
     public static Field getField(String fieldName, Class clazz) {
-        for (Field field : getAllField(clazz)) {
+        for (Field field : getAllFields(clazz)) {
             if (field.getName().equalsIgnoreCase(fieldName))
                 return field;
         }
         return null;
     }
 
-    public static List<Field> getAllField(Class clazz) {
+    public static List<Field> getAllFields(Class clazz) {
         List<Field> fields = new ArrayList<>();
         List<Class> classes = getAllSuperClasses(clazz);
         for (Class currentClass : classes) {
@@ -64,5 +65,32 @@ public class HandlerClasses {
 
     public static String getStringAsClassName(String nameIsInvalid) {
         return (nameIsInvalid.substring(0, 1).toUpperCase() + nameIsInvalid.substring(1));
+    }
+
+    public static Object createInstance(Class clazz) {
+        Object instance = null;
+        try {
+            if (clazz == List.class) instance = new ArrayList<>();
+            else instance = clazz.newInstance();
+        } catch (InstantiationException e) {
+            log.error("Constructor is not found!", e); //crush app
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            log.error("No access to create an instance!", e); //crush app
+            e.printStackTrace();
+        }
+        return instance;
+    }
+
+    public static Class getGenericType(Class clasz) {
+        Class foundClass = null;
+        try {
+            Field field = clasz.getDeclaredField("tracks");
+            ParameterizedType genericType = (ParameterizedType) field.getGenericType();
+            foundClass = (Class) genericType.getActualTypeArguments()[0];
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return foundClass;
     }
 }

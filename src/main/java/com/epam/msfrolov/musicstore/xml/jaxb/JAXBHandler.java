@@ -31,6 +31,7 @@ public class JAXBHandler<T> {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public T unmarshal(String filePath) {
         T object = null;
         try {

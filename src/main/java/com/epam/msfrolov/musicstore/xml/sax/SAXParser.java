@@ -11,7 +11,6 @@ public class SAXParser<T> implements Parser<T> {
 
     XMLReader reader;
     SAXHandler<T> handler;
-    private T result;
 
     public SAXParser(Class<T> clazz) {
         handler = new SAXHandler<>(clazz);
@@ -25,18 +24,12 @@ public class SAXParser<T> implements Parser<T> {
 
     //todo Exception
     @Override
-    public void buildSet(String fileName) {
+    public T parse(String fileName) {
         try {
             reader.parse(fileName);
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
-        result = handler.getResult();
+        return handler.getResult();
     }
-
-    @Override
-    public T getInstance() {
-        return result;
-    }
-
 }
