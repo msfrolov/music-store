@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.sax;
+package com.epam.msfrolov.musicstore.xml.analyzer;
 
 import com.epam.msfrolov.musicstore.xml.Parser;
 import org.xml.sax.SAXException;
@@ -7,13 +7,13 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import java.io.IOException;
 
-public class PlainSAXParser<T> implements Parser<T> {
+public class SAXParser<T> implements Parser<T> {
 
     XMLReader reader;
-    PlainSAXHandler<T> handler;
+    SAXHandler<T> handler;
 
-    public PlainSAXParser(Class<T> clazz) {
-        handler = new PlainSAXHandler<>(clazz);
+    public SAXParser(Class<T> clazz) {
+        handler = new SAXHandler<>(clazz);
         try {
             reader = XMLReaderFactory.createXMLReader();
             reader.setContentHandler(handler);
@@ -22,7 +22,6 @@ public class PlainSAXParser<T> implements Parser<T> {
         }
     }
 
-    //todo Exception
     @Override
     public T parse(String fileName) {
         try {
@@ -32,5 +31,4 @@ public class PlainSAXParser<T> implements Parser<T> {
         }
         return handler.getResult();
     }
-
 }

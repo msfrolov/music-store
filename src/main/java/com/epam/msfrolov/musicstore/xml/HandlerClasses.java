@@ -23,7 +23,6 @@ public class HandlerClasses {
     public static boolean checkField(String fieldName, Class clasz) {
         List<Field> allField = getAllFields(clasz);
         for (Field field : allField) {
-            log.debug("Compare: {} and {} in clazz " + clasz.getSimpleName(), field.getName(), fieldName);
             if (field.getName().equalsIgnoreCase(fieldName))
                 return true;
         }

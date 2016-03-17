@@ -1,152 +1,152 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <user>
-    <id>6119</id>
-    <name>Manfred Mann's Earth Band</name>
+    <id>42290</id>
+    <name>Queen</name>
     <account>
-        <value>KZT 144684.00</value>
+        <value>KZT 143895.00</value>
     </account>
     <boughttracks>
-        <duration>3984</duration>
+        <duration>4131</duration>
         <tracks>
             <track>
-                <id>59261</id>
-                <name>Europe - The Final Countdown</name>
-                <duration>212</duration>
-                <price>KZT 140.00</price>
-                <style>Мелодический блэк-метал</style>
+                <id>71852</id>
+                <name>Santana - Black Magic Woman</name>
+                <duration>189</duration>
+                <price>KZT 441.00</price>
+                <style>Краст-панк</style>
             </track>
             <track>
-                <id>75530</id>
-                <name>The Beatles - Back In The USSR</name>
-                <duration>157</duration>
-                <price>KZT 529.00</price>
-                <style>Ска-панк</style>
+                <id>59503</id>
+                <name>Dire Straits - Money for Nothing</name>
+                <duration>311</duration>
+                <price>KZT 413.00</price>
+                <style>Постпанк</style>
             </track>
             <track>
-                <id>81984</id>
-                <name>King Crimson - 21St Century Schizoid Man</name>
-                <duration>204</duration>
-                <price>KZT 59.00</price>
-                <style>Викинг-метал</style>
+                <id>38005</id>
+                <name>Bee Gees - To Love Somebody</name>
+                <duration>94</duration>
+                <price>KZT 68.00</price>
+                <style>Паб-рок</style>
             </track>
             <track>
-                <id>68121</id>
-                <name>The Mamas and The Papas - California Dreamin'</name>
-                <duration>136</duration>
+                <id>48757</id>
+                <name>Queen - Bohemian Rhapsody</name>
+                <duration>326</duration>
+                <price>KZT 121.00</price>
+                <style>Психоделический рок</style>
+            </track>
+            <track>
+                <id>57262</id>
+                <name>Луис Армстронг - What a Wonderful World</name>
+                <duration>82</duration>
                 <price>KZT 381.00</price>
-                <style>Поп-панк</style>
-            </track>
-            <track>
-                <id>50886</id>
-                <name>The Zombies - She's Not There</name>
-                <duration>319</duration>
-                <price>KZT 451.00</price>
-                <style>Шугейзинг</style>
-            </track>
-            <track>
-                <id>99383</id>
-                <name>Led Zeppelin - Stairway to Heaven</name>
-                <duration>234</duration>
-                <price>KZT 268.00</price>
-                <style>Фолк-метал</style>
-            </track>
-            <track>
-                <id>86446</id>
-                <name>The Beatles - Get Back</name>
-                <duration>276</duration>
-                <price>KZT 143.00</price>
-                <style>Биг-Бит</style>
-            </track>
-            <track>
-                <id>97938</id>
-                <name>Metallica - The Unforgiven</name>
-                <duration>297</duration>
-                <price>KZT 360.00</price>
-                <style>Арт-рок (Прогрессивный рок)</style>
-            </track>
-            <track>
-                <id>17356</id>
-                <name>The Beatles - Let It Be</name>
-                <duration>92</duration>
-                <price>KZT 406.00</price>
-                <style>Дум-метал</style>
-            </track>
-            <track>
-                <id>34593</id>
-                <name>Chicago - 25 or 6 to 4</name>
-                <duration>276</duration>
-                <price>KZT 273.00</price>
-                <style>Эмбиент</style>
-            </track>
-            <track>
-                <id>25824</id>
-                <name>The Beatles - Something</name>
-                <duration>222</duration>
-                <price>KZT 157.00</price>
-                <style>Симфонический блэк-метал</style>
-            </track>
-            <track>
-                <id>66612</id>
-                <name>Nirvana - Smells Like Teen Spirit</name>
-                <duration>194</duration>
-                <price>KZT 502.00</price>
                 <style>8 бит</style>
             </track>
             <track>
-                <id>6825</id>
-                <name>Led Zeppelin - Stairway to Heaven</name>
-                <duration>173</duration>
-                <price>KZT 102.00</price>
-                <style>Метал (Хард-рок)</style>
+                <id>23703</id>
+                <name>Pink Floyd - Wish You Were Here</name>
+                <duration>150</duration>
+                <price>KZT 391.00</price>
+                <style>Тру-блэк метал</style>
             </track>
             <track>
-                <id>89705</id>
-                <name>Europe - The Final Countdown</name>
-                <duration>292</duration>
-                <price>KZT 156.00</price>
-                <style>Минимал</style>
+                <id>88231</id>
+                <name>The Hollies - The Air That I Breathe</name>
+                <duration>82</duration>
+                <price>KZT 87.00</price>
+                <style>Пост-гранж</style>
             </track>
             <track>
-                <id>20199</id>
-                <name>Майкл Джексон - Billie Jean</name>
-                <duration>179</duration>
-                <price>KZT 155.00</price>
-                <style>Скиффл</style>
+                <id>96165</id>
+                <name>Jethro Tull - Aqualung</name>
+                <duration>242</duration>
+                <price>KZT 470.00</price>
+                <style>Мерсибит</style>
             </track>
             <track>
-                <id>42309</id>
-                <name>Nirvana - Smells Like Teen Spirit</name>
-                <duration>255</duration>
-                <price>KZT 343.00</price>
-                <style>Готик-метал</style>
+                <id>23654</id>
+                <name>The Beatles - While My Guitar Gently Weeps</name>
+                <duration>175</duration>
+                <price>KZT 55.00</price>
+                <style>Психоделический рок</style>
             </track>
             <track>
-                <id>18043</id>
-                <name>The Beatles - Michelle</name>
-                <duration>110</duration>
-                <price>KZT 229.00</price>
-                <style>Метал (Хард-рок)</style>
+                <id>18852</id>
+                <name>Queen - Don't Stop Me Now</name>
+                <duration>326</duration>
+                <price>KZT 452.00</price>
+                <style>Русский рок</style>
             </track>
             <track>
-                <id>92641</id>
-                <name>Metallica - The Unforgiven</name>
-                <duration>130</duration>
-                <price>KZT 376.00</price>
-                <style>Блэк-метал</style>
+                <id>63510</id>
+                <name>Chicago - If You Leave Me Now</name>
+                <duration>123</duration>
+                <price>KZT 276.00</price>
+                <style>Спид-метал</style>
             </track>
             <track>
-                <id>98896</id>
-                <name>Nirvana - Smells Like Teen Spirit</name>
-                <duration>112</duration>
-                <price>KZT 137.00</price>
-                <style>Фолк-метал</style>
+                <id>21494</id>
+                <name>The Beatles - Back In The USSR</name>
+                <duration>260</duration>
+                <price>KZT 522.00</price>
+                <style>Эмбиент</style>
             </track>
             <track>
-                <id>10474</id>
-                <name>Scorpions - Still Loving You</name>
-                <duration>114</duration>
-                <price>KZT 149.00</price>
-                <style>Гаражный рок</style>
+                <id>47209</id>
+                <name>The Mamas and The Papas - California Dreamin'</name>
+                <duration>203</duration>
+                <price>KZT 87.00</price>
+                <style>Мерсибит</style>
+            </track>
+            <track>
+                <id>49673</id>
+                <name>Bread - Guitar Man</name>
+                <duration>314</duration>
+                <price>KZT 366.00</price>
+                <style>Спид-метал</style>
+            </track>
+            <track>
+                <id>47570</id>
+                <name>Джон Леннон - Imagine</name>
+                <duration>64</duration>
+                <price>KZT 222.00</price>
+                <style>Шугейзинг</style>
+            </track>
+            <track>
+                <id>96975</id>
+                <name>Led Zeppelin - When the Levee Breaks</name>
+                <duration>352</duration>
+                <price>KZT 334.00</price>
+                <style>Пост-гранж</style>
+            </track>
+            <track>
+                <id>60051</id>
+                <name>Дэвид Боуи - Ziggy Stardust</name>
+                <duration>151</duration>
+                <price>KZT 346.00</price>
+                <style>Софт-рок</style>
+            </track>
+            <track>
+                <id>51191</id>
+                <name>Bread - Lost Without Your Love</name>
+                <duration>302</duration>
+                <price>KZT 170.00</price>
+                <style>Софт-рок</style>
+            </track>
+            <track>
+                <id>95970</id>
+                <name>Queen - We Will Rock You</name>
+                <duration>249</duration>
+                <price>KZT 490.00</price>
+                <style>Мэдчестер</style>
+            </track>
+            <track>
+                <id>19462</id>
+                <name>Queen - We Will Rock You</name>
+                <duration>136</duration>
+                <price>KZT 413.00</price>
+                <style>Электро-хаус</style>
             </track>
         </tracks>
     </boughttracks>

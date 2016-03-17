@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.jaxb;
+package com.epam.msfrolov.musicstore.xml.analyzer;
 
 import com.epam.msfrolov.musicstore.xml.Parser;
 
