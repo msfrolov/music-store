@@ -16,6 +16,8 @@ public class AnalyzerFactoryTest {
         createFactory("jaxb");
         log.info("SAX");
         createFactory("sax");
+        log.info("StAX");
+        createFactory("stax");
     }
 
     private void createFactory(String typeBuilder) {

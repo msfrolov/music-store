@@ -1,8 +1,6 @@
 package com.epam.msfrolov.musicstore.xml;
 
-import com.epam.msfrolov.musicstore.xml.analyzer.JAXBParser;
-import com.epam.msfrolov.musicstore.xml.analyzer.JAXBUnparser;
-import com.epam.msfrolov.musicstore.xml.analyzer.SAXParser;
+import com.epam.msfrolov.musicstore.xml.analyzer.*;
 
 import static com.epam.msfrolov.musicstore.xml.AnalyzerFactory.BuilderType.*;
 
@@ -14,10 +12,10 @@ public class AnalyzerFactory {
             return new JAXBParser<>(clazz);
         } else if (type == SAX) {
             return new SAXParser<>(clazz);
-            //} else if (type == STAX) {
-            //return new StAXBuilder();
-            // } else if (type == DOM) {
-            // return new DOMBuilder();
+            } else if (type == STAX) {
+            return new StAXParser<>(clazz);
+            } else if (type == DOM) {
+            return new DOMParser<>(clazz);
         } else
             throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());
     }

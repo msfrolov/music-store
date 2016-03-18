@@ -8,26 +8,23 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.IOException;
 
 public class SAXParser<T> implements Parser<T> {
-
-    XMLReader reader;
-    SAXHandler<T> handler;
+    Class clazz;
 
     public SAXParser(Class<T> clazz) {
-        handler = new SAXHandler<>(clazz);
-        try {
-            reader = XMLReaderFactory.createXMLReader();
-            reader.setContentHandler(handler);
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
+        this.clazz = clazz;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public T parse(String fileName) {
+        SAXHandler<T> handler = new SAXHandler<>(clazz);
         try {
+            XMLReader reader = XMLReaderFactory.createXMLReader();
+            reader.setContentHandler(handler);
             reader.parse(fileName);
         } catch (IOException | SAXException e) {
             e.printStackTrace();
+
         }
         return handler.getResult();
     }
