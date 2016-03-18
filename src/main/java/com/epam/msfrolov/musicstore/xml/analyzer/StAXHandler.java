@@ -16,12 +16,10 @@ import static com.epam.msfrolov.musicstore.xml.HandlerClasses.*;
 public class StAXHandler<T> {
     private static final Logger log = LoggerFactory.getLogger(StAXHandler.class);
     private Class clazz;
-    private StringBuilder currentCh;
     private Object currentObject;
     private String currentElement;
     private Deque<Object> objects;
     private Deque<String> elements;
-    private List<String> classNames;
 
     public StAXHandler(Class clazz) {
         this.clazz = clazz;
@@ -29,10 +27,10 @@ public class StAXHandler<T> {
 
     public T parse(XMLStreamReader streamReader) {
         T result = null;
-        currentCh = new StringBuilder();
+        StringBuilder currentCh = new StringBuilder();
         objects = new ArrayDeque<>();
         elements = new ArrayDeque<>();
-        classNames = FileHandler.getPropertyValues("class.names.properties");
+        List<String> classNames = FileHandler.getPropertyValues("class.names.properties");
         try {
             while (streamReader.hasNext()) {
                 int type = streamReader.next();
@@ -46,8 +44,9 @@ public class StAXHandler<T> {
                             currentClass = getGenericType(peekNextToLastObj().getClass());
                         } else if (checkField(localName, peekObj().getClass())) {
                             Field currentField = getField(localName, peekObj().getClass());
-                            assert currentField != null;
-                            currentClass = currentField.getType();
+                            if (currentField != null) {                 ////
+                                currentClass = currentField.getType();
+                            }
                         }
                         Object o;
                         if ((o = createInstance(currentClass)) != null) pushObj(o);
@@ -61,7 +60,7 @@ public class StAXHandler<T> {
                     String localName = streamReader.getLocalName();
                     if (classNames.contains(localName)) {
                         if (!localName.equalsIgnoreCase(clazz.getSimpleName())) {
-                            if (peekNextToLastObj() instanceof List) {
+                            if (objects.peekLast() instanceof List) { ////
                                 setValue(peekNextToLastObj(), peekObj());
                             } else if (checkField(localName, peekNextToLastObj().getClass())) {
                                 setValue(peekNextToLastObj(), peekObj(), peekElem());
