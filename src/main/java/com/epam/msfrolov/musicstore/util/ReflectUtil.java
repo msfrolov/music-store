@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml;
+package com.epam.msfrolov.musicstore.util;
 
 import com.epam.msfrolov.musicstore.model.Style;
 import com.epam.msfrolov.musicstore.xml.adapter.DurationXmlAdapter;
@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class HandlerClasses {
-    private static final Logger log = LoggerFactory.getLogger(HandlerClasses.class);
+public class ReflectUtil {
+    private static final Logger log = LoggerFactory.getLogger(ReflectUtil.class);
 
     public static boolean checkField(String fieldName, Class clasz) {
         List<Field> allField = getAllFields(clasz);
@@ -115,13 +115,10 @@ public class HandlerClasses {
             Field field = getField(fieldName, object.getClass());
             assert field != null;
             field.setAccessible(true);
-            //if (value.getClass() == String.class && ((Class) field.getType()) != String.class) {
             Class modifyClass = (Class) field.getType();
             value = modifyTypeValue(value, modifyClass);
-            //}
             field.set(object, value);
         } catch (IllegalAccessException e) {
-            log.error("Can not set the value in the field!", e);
             e.printStackTrace();
         }
     }

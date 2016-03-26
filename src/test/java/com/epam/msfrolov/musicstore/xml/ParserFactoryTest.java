@@ -5,9 +5,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AnalyzerFactoryTest {
+public class ParserFactoryTest {
 
-    private static final Logger log = LoggerFactory.getLogger(AnalyzerFactoryTest.class);
+    private static final Logger log = LoggerFactory.getLogger(ParserFactoryTest.class);
 
     @Test
     public void testParserFactory() throws Exception {
@@ -19,12 +19,12 @@ public class AnalyzerFactoryTest {
         log.info("StAX");
         createFactory("stax");
         log.info("DOM");
-       // createFactory("dom");
+        createFactory("dom");
     }
 
-    private void createFactory(String typeBuilder) {
-        AnalyzerFactory analyzerFactory = new AnalyzerFactory();
-        Parser<User> parser = analyzerFactory.createParser(typeBuilder, User.class);
+    private void createFactory(String typeBuilder) throws XMLParserException {
+        ParserFactory parserFactory = new ParserFactory();
+        Parser<User> parser = parserFactory.createParser(typeBuilder, User.class);
         User instance = parser.parse("src/test/resources/test.xml");
         log.info("Unmarshal instance: {}", instance.toStringWithDetails());
     }

@@ -1,152 +1,152 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <user>
-    <id>42998</id>
-    <name>Procol Harum</name>
+    <id>64087</id>
+    <name>The Beatles</name>
     <account>
-        <value>KZT 144253.00</value>
+        <value>KZT 144364.00</value>
     </account>
     <boughttracks>
-        <duration>3447</duration>
+        <duration>4393</duration>
         <tracks>
             <track>
-                <id>44430</id>
-                <name>Cream - Sunshine Of Your Love</name>
-                <duration>122</duration>
-                <price>KZT 513.00</price>
-                <style>Lo-Fi</style>
+                <id>62580</id>
+                <name>Фредди Меркьюри - The Great Pretender</name>
+                <duration>73</duration>
+                <price>KZT 343.00</price>
+                <style>Скиффл</style>
             </track>
             <track>
-                <id>18883</id>
-                <name>The Rolling Stones - Paint It, Black</name>
-                <duration>197</duration>
-                <price>KZT 80.00</price>
-                <style>Ска-панк</style>
+                <id>53326</id>
+                <name>Carpenters - Goodbye To Love</name>
+                <duration>346</duration>
+                <price>KZT 329.00</price>
+                <style>Психоделический рок</style>
             </track>
             <track>
-                <id>82009</id>
-                <name>Pink Floyd - Time</name>
-                <duration>74</duration>
-                <price>KZT 221.00</price>
-                <style>Биг-Бит</style>
-            </track>
-            <track>
-                <id>37698</id>
-                <name>Bee Gees - To Love Somebody</name>
-                <duration>227</duration>
-                <price>KZT 109.00</price>
-                <style>8 бит</style>
-            </track>
-            <track>
-                <id>93133</id>
-                <name>Элтон Джон - Goodbye Yellow Brick Road</name>
-                <duration>115</duration>
-                <price>KZT 511.00</price>
-                <style>Ска-панк</style>
-            </track>
-            <track>
-                <id>9148</id>
-                <name>The Rolling Stones - Angie</name>
-                <duration>69</duration>
-                <price>KZT 323.00</price>
-                <style>Шугейзинг</style>
-            </track>
-            <track>
-                <id>65926</id>
-                <name>The Beatles - Yesterday</name>
-                <duration>147</duration>
-                <price>KZT 174.00</price>
-                <style>Построк</style>
-            </track>
-            <track>
-                <id>10835</id>
-                <name>Shocking Blue - Venus</name>
-                <duration>198</duration>
-                <price>KZT 141.00</price>
+                <id>80465</id>
+                <name>The Beach Boys - I Can Hear Music</name>
+                <duration>309</duration>
+                <price>KZT 290.00</price>
                 <style>Эмо</style>
             </track>
             <track>
-                <id>15036</id>
-                <name>Queen - We Are the Champions</name>
-                <duration>198</duration>
-                <price>KZT 335.00</price>
-                <style>Краст-панк</style>
+                <id>20652</id>
+                <name>The Beatles - Sgt</name>
+                <duration>218</duration>
+                <price>KZT 198.00</price>
+                <style>Фрикбит</style>
             </track>
             <track>
-                <id>95465</id>
-                <name>The Beatles - Yellow Submarine</name>
-                <duration>111</duration>
-                <price>KZT 125.00</price>
-                <style>Эмо</style>
+                <id>59348</id>
+                <name>Queen - The Show Must Go On</name>
+                <duration>145</duration>
+                <price>KZT 162.00</price>
+                <style>Рок-н-ролл</style>
             </track>
             <track>
-                <id>91349</id>
-                <name>Deep Purple - Child In Time</name>
+                <id>83371</id>
+                <name>The Beatles - Lady Madonna</name>
                 <duration>72</duration>
-                <price>KZT 507.00</price>
-                <style>Рокабилли</style>
+                <price>KZT 441.00</price>
+                <style>Дэт-метал</style>
             </track>
             <track>
-                <id>69928</id>
-                <name>King Crimson - 21St Century Schizoid Man</name>
-                <duration>151</duration>
-                <price>KZT 336.00</price>
-                <style>Кроссовер</style>
-            </track>
-            <track>
-                <id>35827</id>
-                <name>Status Quo - In the Army Now</name>
-                <duration>212</duration>
-                <price>KZT 178.00</price>
-                <style>Мэдчестер</style>
-            </track>
-            <track>
-                <id>73602</id>
-                <name>Джон Леннон - Imagine</name>
-                <duration>318</duration>
-                <price>KZT 437.00</price>
-                <style>Дрон</style>
-            </track>
-            <track>
-                <id>64671</id>
-                <name>Пол Маккартни - No More Lonely Nights</name>
-                <duration>290</duration>
-                <price>KZT 367.00</price>
-                <style>Ска-панк</style>
-            </track>
-            <track>
-                <id>84430</id>
-                <name>The Beatles - Girl</name>
-                <duration>168</duration>
-                <price>KZT 78.00</price>
-                <style>Метал (Хард-рок)</style>
-            </track>
-            <track>
-                <id>98659</id>
-                <name>Led Zeppelin - Kashmir</name>
-                <duration>296</duration>
-                <price>KZT 488.00</price>
-                <style>Фолк-рок</style>
-            </track>
-            <track>
-                <id>74837</id>
-                <name>The Beatles - Come Together</name>
-                <duration>156</duration>
-                <price>KZT 389.00</price>
-                <style>Нойз-рок</style>
-            </track>
-            <track>
-                <id>53371</id>
-                <name>The Rolling Stones - Paint It, Black</name>
-                <duration>209</duration>
-                <price>KZT 319.00</price>
-                <style>Гаражный рок</style>
-            </track>
-            <track>
-                <id>60671</id>
-                <name>The Doors - Riders on the Storm</name>
-                <duration>117</duration>
-                <price>KZT 116.00</price>
+                <id>87582</id>
+                <name>The Hollies - Sorry Suzanne</name>
+                <duration>247</duration>
+                <price>KZT 200.00</price>
                 <style>Поп-панк</style>
+            </track>
+            <track>
+                <id>3859</id>
+                <name>Metallica - The Unforgiven</name>
+                <duration>107</duration>
+                <price>KZT 93.00</price>
+                <style>Поп-панк</style>
+            </track>
+            <track>
+                <id>37866</id>
+                <name>Элтон Джон - Goodbye Yellow Brick Road</name>
+                <duration>113</duration>
+                <price>KZT 393.00</price>
+                <style>Софт-рок</style>
+            </track>
+            <track>
+                <id>3294</id>
+                <name>Nazareth - Love Hurts</name>
+                <duration>272</duration>
+                <price>KZT 242.00</price>
+                <style>No Wave</style>
+            </track>
+            <track>
+                <id>93478</id>
+                <name>Pink Floyd - Hey You</name>
+                <duration>245</duration>
+                <price>KZT 84.00</price>
+                <style>Брит-поп</style>
+            </track>
+            <track>
+                <id>95633</id>
+                <name>Pink Floyd - Echoes</name>
+                <duration>338</duration>
+                <price>KZT 296.00</price>
+                <style>Альтернативный рок (Инди-рок / Колледж-рок)</style>
+            </track>
+            <track>
+                <id>19645</id>
+                <name>Shocking Blue - Venus</name>
+                <duration>97</duration>
+                <price>KZT 219.00</price>
+                <style>Фолк-метал</style>
+            </track>
+            <track>
+                <id>75899</id>
+                <name>Deep Purple - Child In Time</name>
+                <duration>323</duration>
+                <price>KZT 534.00</price>
+                <style>Поп-рок</style>
+            </track>
+            <track>
+                <id>60088</id>
+                <name>Led Zeppelin - Kashmir</name>
+                <duration>229</duration>
+                <price>KZT 463.00</price>
+                <style>Софт-рок</style>
+            </track>
+            <track>
+                <id>3967</id>
+                <name>Led Zeppelin - Since I've Been Loving You</name>
+                <duration>212</duration>
+                <price>KZT 149.00</price>
+                <style>Скиффл</style>
+            </track>
+            <track>
+                <id>6040</id>
+                <name>Queen - We Are the Champions</name>
+                <duration>349</duration>
+                <price>KZT 227.00</price>
+                <style>Инди-поп</style>
+            </track>
+            <track>
+                <id>61382</id>
+                <name>Europe - The Final Countdown</name>
+                <duration>314</duration>
+                <price>KZT 482.00</price>
+                <style>Готик-рок</style>
+            </track>
+            <track>
+                <id>90535</id>
+                <name>Элтон Джон - Goodbye Yellow Brick Road</name>
+                <duration>323</duration>
+                <price>KZT 266.00</price>
+                <style>Готик-рок</style>
+            </track>
+            <track>
+                <id>38757</id>
+                <name>Pink Floyd - Money</name>
+                <duration>61</duration>
+                <price>KZT 225.00</price>
+                <style>Альтернативный метал</style>
             </track>
         </tracks>
     </boughttracks>

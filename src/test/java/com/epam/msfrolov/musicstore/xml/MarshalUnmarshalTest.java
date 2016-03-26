@@ -55,8 +55,8 @@ public class MarshalUnmarshalTest {
         jaxbHandler.marshal(user, fileName);
         //WHEN
         //Parse with SAX through factory
-        AnalyzerFactory analyzerFactory = new AnalyzerFactory();
-        Parser<User> parser = analyzerFactory.createParser("sax", User.class);
+        ParserFactory parserFactory = new ParserFactory();
+        Parser<User> parser = parserFactory.createParser("sax", User.class);
         User instance = parser.parse(fileName);
 
         //THEN
