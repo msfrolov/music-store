@@ -1,7 +1,7 @@
 package com.epam.msfrolov.musicstore.xml.unparser;
 
 import com.epam.msfrolov.musicstore.xml.Unparser;
-import com.epam.msfrolov.musicstore.xml.analyzer.JAXBHandler;
+import com.epam.msfrolov.musicstore.xml.parser.JAXBHandler;
 
 public class JAXBUnparser<T> implements Unparser<T> {
 

@@ -5,7 +5,7 @@ import com.epam.msfrolov.musicstore.factory.UserFactory;
 import com.epam.msfrolov.musicstore.model.Track;
 import com.epam.msfrolov.musicstore.model.User;
 import com.epam.msfrolov.musicstore.util.StoreService;
-import com.epam.msfrolov.musicstore.xml.analyzer.JAXBHandler;
+import com.epam.msfrolov.musicstore.xml.parser.JAXBHandler;
 import org.joda.money.Money;
 import org.junit.Test;
 import org.slf4j.Logger;

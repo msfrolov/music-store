@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.analyzer;
+package com.epam.msfrolov.musicstore.xml.parser;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

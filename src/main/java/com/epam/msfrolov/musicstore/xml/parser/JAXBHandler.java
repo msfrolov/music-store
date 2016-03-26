@@ -1,4 +1,4 @@
-package com.epam.msfrolov.musicstore.xml.analyzer;
+package com.epam.msfrolov.musicstore.xml.parser;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

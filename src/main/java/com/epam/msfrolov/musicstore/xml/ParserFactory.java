@@ -1,9 +1,9 @@
 package com.epam.msfrolov.musicstore.xml;
 
-import com.epam.msfrolov.musicstore.xml.analyzer.DOMParser;
-import com.epam.msfrolov.musicstore.xml.analyzer.JAXBParser;
-import com.epam.msfrolov.musicstore.xml.analyzer.SAXParser;
-import com.epam.msfrolov.musicstore.xml.analyzer.StAXParser;
+import com.epam.msfrolov.musicstore.xml.parser.DOMParser;
+import com.epam.msfrolov.musicstore.xml.parser.JAXBParser;
+import com.epam.msfrolov.musicstore.xml.parser.SAXParser;
+import com.epam.msfrolov.musicstore.xml.parser.StAXParser;
 
 import static com.epam.msfrolov.musicstore.xml.ParserFactory.BuilderType.*;
 
