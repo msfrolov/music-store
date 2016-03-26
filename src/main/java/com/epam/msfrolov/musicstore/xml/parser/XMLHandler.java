@@ -1,7 +1,6 @@
 package com.epam.msfrolov.musicstore.xml.parser;
 
 import com.epam.msfrolov.musicstore.util.FileHandler;
-import org.xml.sax.SAXException;
 
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
@@ -37,7 +36,7 @@ public class XMLHandler<T> {
         pushElem(localName);
         if (isComplexTypeName(peekElem()) && peekObj() != null) {
             Class currentClass = null;
-            if (peekObj() instanceof List) {
+            if (isCurrentObjectList()) {
                 currentClass = getGenericType(peekNextToLastObj().getClass());
             } else if (checkField(peekElem(), peekObj().getClass())) {
                 Field currentField = getField(peekElem(), peekObj().getClass());
@@ -52,13 +51,17 @@ public class XMLHandler<T> {
         }
     }
 
+    private boolean isCurrentObjectList() {
+        return peekObj() instanceof List;
+    }
+
 
     public void characters(String s) {
         currentCh.append(s.trim());
     }
 
-    public void characters(char[] ch, int start, int length) throws SAXException {
-        currentCh.append(ch, start, length);
+    public void characters(char[] ch, int start, int length) {
+        currentCh.append(new String(ch, start, length).trim());
     }
 
     public void endElement() {
