@@ -35,22 +35,23 @@ public class XMLHandler<T> {
     public void startElement(String localName) {
         currentCh.setLength(0);
         pushElem(localName);
-        if (classNames.contains(localName) && peekObj() != null) {
+        if (isComplexTypeName(peekElem()) && peekObj() != null) {
             Class currentClass = null;
             if (peekObj() instanceof List) {
                 currentClass = getGenericType(peekNextToLastObj().getClass());
-            } else if (checkField(localName, peekObj().getClass())) {
-                Field currentField = getField(localName, peekObj().getClass());
+            } else if (checkField(peekElem(), peekObj().getClass())) {
+                Field currentField = getField(peekElem(), peekObj().getClass());
                 assert currentField != null;
                 currentClass = currentField.getType();
             }
             Object o;
             if ((o = createInstance(currentClass)) != null) pushObj(o);
-        } else if (localName.equalsIgnoreCase(clazz.getSimpleName())) {
+        } else if (isCurrentElementRoot()) {
             Object o;
             if ((o = createInstance(clazz)) != null) pushObj(o);
         }
     }
+
 
     public void characters(String s) {
         currentCh.append(s.trim());
@@ -61,20 +62,17 @@ public class XMLHandler<T> {
     }
 
     public void endElement() {
-
-        if (classNames.contains(peekElem())) {
-            if (!peekElem().equalsIgnoreCase(clazz.getSimpleName())) {
+        if (isComplexTypeName(peekElem())) {
+            if (!isCurrentElementRoot()) {
                 if (peekNextToLastObj() instanceof List) {
                     setValue(peekNextToLastObj(), peekObj());
                 } else if (checkField(peekElem(), peekNextToLastObj().getClass())) {
                     setValue(peekNextToLastObj(), peekObj(), peekElem());
                 }
             }
+            popObj();
         } else {
             setValue(peekObj(), currentCh.toString().trim(), peekElem());
-        }
-        if (classNames.contains(peekElem())) {
-            popObj();
         }
         popElem();
     }
@@ -131,4 +129,11 @@ public class XMLHandler<T> {
         return result;
     }
 
+    private boolean isComplexTypeName(String localName) {
+        return classNames.contains(localName);
+    }
+
+    private boolean isCurrentElementRoot() {
+        return peekElem().equalsIgnoreCase(clazz.getSimpleName());
+    }
 }
