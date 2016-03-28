@@ -30,6 +30,5 @@ public class ReflectUtilTest {
         //Last class in list should be equals BaseEntity
         Class clazz = allSuperClasses.get(allSuperClasses.size() - 1);
         assertEquals(BaseEntity.class, clazz);
-
     }
 }
