@@ -1,10 +1,25 @@
 package com.epam.msfrolov.musicstore.model;
 
+import com.epam.msfrolov.musicstore.xml.adapter.MoneyXmlAdapter;
 import org.joda.money.Money;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@XmlAccessorType(XmlAccessType.NONE)
 public class Account extends BaseEntity {
+
     private User owner;
+
+    @XmlJavaTypeAdapter(MoneyXmlAdapter.class)
+    @XmlElement(name = "value")
     private Money value;
+
+    public Account() {
+        this(User.ADMIN);
+    }
 
     public Account(User user) {
         this.owner = user;
@@ -26,6 +41,14 @@ public class Account extends BaseEntity {
         return !value.isGreaterThan(this.value);
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public Money getAccountStatement() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -33,5 +56,7 @@ public class Account extends BaseEntity {
                 ", value=" + value +
                 '}';
     }
+
+
 }
 

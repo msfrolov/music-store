@@ -1,3 +1,5 @@
+/src/test/java/com/epam/msfrolov/musicstore/xml/TestReflectTEMPCLASS.java
 .idea/
-*.iml
-.target/
+target/
+/src/main/java/com/epam/msfrolov/musicstore/xml/plain_sax
+files/

@@ -8,6 +8,9 @@ public class Style extends NamedEntity implements Comparable<Style> {
         NON_STYLE = new Style("NON STYLE");
     }
 
+    public Style() {
+    }
+
     public Style(String name) {
         this.setName(name);
     }

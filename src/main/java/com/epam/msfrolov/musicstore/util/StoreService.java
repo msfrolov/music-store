@@ -10,7 +10,6 @@ public class StoreService {
         }
         Payment payment = Payment.conduct(user, User.ADMIN, track.getPrice(), DetailsOfPayment.PAY_PER_TRACK);
         user.getBoughtTracks().add(track);
-        System.out.println(payment);
         return payment.isDone();
     }
 
@@ -22,7 +21,6 @@ public class StoreService {
         for (Track track:album) {
             user.getBoughtTracks().add(track);
         }
-        System.out.println(payment);
         return payment.isDone();
     }
 

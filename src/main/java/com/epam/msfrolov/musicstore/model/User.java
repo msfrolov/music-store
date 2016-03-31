@@ -1,17 +1,37 @@
 package com.epam.msfrolov.musicstore.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.epam.msfrolov.musicstore.model.Track.durationFormat;
+
+@XmlRootElement(name = "user")
+@XmlAccessorType(XmlAccessType.NONE)
 public class User extends NamedEntity {
     public static User ADMIN = new User("admin");
+
+    @XmlElement(name = "account")
     private Account account;
-    private Playlist boughtTracks = new Playlist(this);
-    private List<Playlist> playlists = new ArrayList<>();
+
+    @XmlElement(name = "boughttracks", type = Playlist.class)
+    private Playlist boughtTracks;
+    private List<Playlist> playlists;
+
+    public User() {
+        this.account = new Account(this);
+        this.boughtTracks = new Playlist(this);
+        this.playlists = new ArrayList<>();
+    }
 
     public User(String name) {
         this.setName(name);
         this.account = new Account(this);
+        this.boughtTracks = new Playlist(this);
+        this.playlists = new ArrayList<>();
     }
 
     public Playlist getBoughtTracks() {
@@ -37,9 +57,24 @@ public class User extends NamedEntity {
         this.account = account;
     }
 
+
     @Override
     public String toString() {
-        return getName();
-
+        return "User{ " + getName() + " }";
     }
+
+    public String toStringWithDetails() {
+        return "   {User " + getName() +
+                "\n" +
+                "   Account " + account +
+                "\n" +
+                "   Bought track " +
+                "number: " + boughtTracks.size() +
+                "; duration: " + durationFormat(boughtTracks.getDuration()) +
+                "\n" +
+                "   Number playlists " + playlists.size() +
+                '}';
+    }
+
+
 }
