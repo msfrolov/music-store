@@ -182,7 +182,7 @@ public class MyConnectionPool implements ConnectionPool {
 
         void disconnect() throws SQLException {
             if (!this.isClosed()) {
-                if (!connection.getAutoCommit()) 
+                if (!connection.getAutoCommit())
                     connection.setAutoCommit(true);
                 connection.close();
             }
