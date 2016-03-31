@@ -97,7 +97,6 @@ public class MyConnectionPool implements ConnectionPool {
                 connection = DriverManager.getConnection(URL);
             else
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            connection.setAutoCommit(false);
             return connection;
         } catch (SQLException e) {
             throw new ConnectionPoolException("Connection pool: cannot create connection", e);
@@ -183,8 +182,8 @@ public class MyConnectionPool implements ConnectionPool {
 
         void disconnect() throws SQLException {
             if (!this.isClosed()) {
-                if (!connection.getAutoCommit())
-                    connection.commit();
+                if (!connection.getAutoCommit()) 
+                    connection.setAutoCommit(true);
                 connection.close();
             }
         }
