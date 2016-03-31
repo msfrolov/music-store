@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Runner {
     static volatile int x = 0;
@@ -23,7 +25,7 @@ public class Runner {
             log.debug("total {}", pool.getNumberConnections());
             log.debug("busy {}", pool.getNumberBusyConnections());
             log.debug("free {}", pool.getNumberFreeConnections());
-            //ExecutorService executor = Executors.newFixedThreadPool(2);
+            ExecutorService executor = Executors.newFixedThreadPool(100);
             Runnable runner = () -> {
                 try (Connection connection = pool.getConnection()) {
                     try (Statement statement = connection.createStatement()) {
@@ -44,34 +46,10 @@ public class Runner {
                     log.debug("SQLException", e);
                 }
             };
-            int threadsNumber = 1000;
-            Thread[] threads = new Thread[threadsNumber];
-            for (int i = 0; i < threadsNumber; i++) {
-                threads[i] = new Thread(runner);
-            }
-            for (int i = 0; i < threadsNumber; i++) {
-                threads[i].start();
-            }
-            try {
-                for (int i = 0; i < threadsNumber; i++) {
-                    threads[i].join();
-                }
-            } catch (Exception e) {
-            }
-
+            executor.execute(runner);
             log.debug("total {}", pool.getNumberConnections());
             log.debug("busy {}", pool.getNumberBusyConnections());
             log.debug("free {}", pool.getNumberFreeConnections());
-            BlockingQueue freeQueue = pool.getFreeQueue();
-            for (Object connection : freeQueue) {
-                try {
-                    if (((Connection) connection).isClosed())
-                        log.debug("isClosed {}", ((Connection) connection).isClosed());
-                } catch (SQLException e) {
-                    log.debug("WTF");
-                }
-
-            }
         }
         log.debug("0 exit" + x);
     }

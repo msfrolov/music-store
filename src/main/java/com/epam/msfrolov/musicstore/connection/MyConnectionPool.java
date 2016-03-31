@@ -50,10 +50,6 @@ public class MyConnectionPool implements ConnectionPool {
         }
     }
 
-    public BlockingQueue<PooledConnection> getFreeQueue() {
-        return freeConnections;
-    }
-
     @Override
     public int getNumberConnections() {
         return getNumberFreeConnections() + getNumberBusyConnections();

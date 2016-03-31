@@ -15,5 +15,4 @@ public interface ConnectionPool extends AutoCloseable {
 
     int getNumberBusyConnections();
 
-    BlockingQueue getFreeQueue();
 }
